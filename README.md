@@ -3,7 +3,8 @@
 ## Setup
 Pre-requisites
 - Apache Tomcat 8.0 installed
-- MySQL installed with the database `swtvr` created (table creation: see below)
+- MySQL installed with the database `swtvr` created (table schema: see below)
+- Git installed: [download here](https://git-scm.com/download/win)
 
 1. Clone/download the repo
 ```sh
@@ -53,6 +54,5 @@ git add -A
 git commit -m "new commit message"
 
 # commit your stuff upstream
-git push -u origin <branch_name>
-
+git push -u origin HEAD
 ```
