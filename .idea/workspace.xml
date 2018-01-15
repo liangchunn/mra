@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5defaf28-ead2-4918-a27d-4ece3adc6e97" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/groupdb.sql" afterPath="$PROJECT_DIR$/resources/groupdb.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dbadapter/Configuration.java" afterPath="$PROJECT_DIR$/src/dbadapter/Configuration.java" />
-    </list>
+    <list default="true" id="5defaf28-ead2-4918-a27d-4ece3adc6e97" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,21 +32,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Configuration.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Configuration.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dbadapter/Configuration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+            <state relative-caret-position="170">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="21" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="groupdb.sql" pinned="false" current-in-tab="true">
+      <file leaf-file-name="groupdb.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/groupdb.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="38" column="22" lean-forward="true" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+            <state relative-caret-position="544">
+              <caret line="32" column="25" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -966,12 +961,12 @@
       <workItem from="1516020564775" duration="284000" />
       <workItem from="1516021164106" duration="28000" />
       <workItem from="1516029575118" duration="958000" />
-      <workItem from="1516031206468" duration="518000" />
+      <workItem from="1516031206468" duration="1202000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18332000" />
+    <option name="totallyTimeSpent" value="19016000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1244,18 +1239,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dbadapter/Configuration.java">
+    <entry file="file://$PROJECT_DIR$/resources/groupdb.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+        <state relative-caret-position="544">
+          <caret line="32" column="25" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/groupdb.sql">
+    <entry file="file://$PROJECT_DIR$/src/dbadapter/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="22" lean-forward="true" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="21" selection-end-column="56" />
           <folding />
         </state>
       </provider>
