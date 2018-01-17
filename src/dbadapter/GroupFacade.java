@@ -1,19 +1,15 @@
 package dbadapter;
 
-import interfaces.IAddUserToGroup;
-import interfaces.ICheckIfGroupNameExists;
-import interfaces.ICreateGroup;
+import datatypes.ChatData;
+import interfaces.*;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 
 /**
  * Created by liangchun on 14.01.18.
  */
-public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, ICreateGroup{
+public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, ICreateGroup, IChatLogin, IReceiveMessages, ISendMessages {
     private static GroupFacade instance;
 
     private GroupFacade() {
@@ -179,5 +175,122 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
             }
         }
         return false;
+    }
+
+    @Override
+    public boolean chatLogin(String groupName, Integer userId) {
+        String sqlQuery = "SELECT * FROM GroupMembers WHERE groupName = ? AND memberId = ? ;";
+        try (Connection connection = DriverManager.getConnection(
+                "jdbc:" + Configuration.getType() + "://"
+                        + Configuration.getServer() + ":"
+                        + Configuration.getPort() + "/"
+                        + Configuration.getDatabase(), Configuration.getUser(),
+                Configuration.getPassword())) {
+            try (PreparedStatement ps = connection.prepareStatement(sqlQuery)) {
+                ps.setString(1, groupName);
+                ps.setInt(2, userId);
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (rs.next())
+                        return true;
+                    else
+                        return false;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public String getUserName(Integer userId) {
+        String sqlQuery = "SELECT userName FROM users WHERE userId = ?;";
+        try (Connection connection = DriverManager.getConnection(
+                "jdbc:" + Configuration.getType() + "://"
+                        + Configuration.getServer() + ":"
+                        + Configuration.getPort() + "/"
+                        + Configuration.getDatabase(), Configuration.getUser(),
+                Configuration.getPassword())) {
+            try (PreparedStatement ps = connection.prepareStatement(sqlQuery)) {
+                ps.setInt(1, userId);
+                try {
+                    ResultSet res = ps.executeQuery();
+                    if (res.next()) {
+                        return res.getString("userName");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    @Override
+    public boolean sendMessages(String groupName, Integer userId, String message) {
+        String creatorName = getUserName(userId);
+        String sqlQuery = "INSERT INTO ChatDatabase (groupName, creatorName, message) VALUES (?, ?, ?);";
+        try (Connection connection = DriverManager.getConnection(
+                "jdbc:" + Configuration.getType() + "://"
+                        + Configuration.getServer() + ":"
+                        + Configuration.getPort() + "/"
+                        + Configuration.getDatabase(), Configuration.getUser(),
+                Configuration.getPassword())) {
+            try (PreparedStatement ps = connection.prepareStatement(sqlQuery)) {
+                ps.setString(1, groupName);
+                ps.setString(2, creatorName);
+                ps.setString(3, message);
+                try {
+                    int rows = ps.executeUpdate();
+                    if (rows > 0) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public ArrayList<ChatData> receiveMessages(String groupName) {
+        String sqlQuery = "SELECT message,creatorName, TIMESTAMP FROM ChatDatabase WHERE groupName = ?;";
+        ArrayList<ChatData> res = new ArrayList<>();
+        try (Connection connection = DriverManager.getConnection(
+                "jdbc:" + Configuration.getType() + "://"
+                        + Configuration.getServer() + ":"
+                        + Configuration.getPort() + "/"
+                        + Configuration.getDatabase(), Configuration.getUser(),
+                Configuration.getPassword())) {
+            try (PreparedStatement ps = connection.prepareStatement(sqlQuery)) {
+                ps.setString(1, groupName);
+                try (ResultSet rs = ps.executeQuery()) {
+                    while (rs.next())
+                        res.add(new ChatData(rs.getString("creatorName"), rs.getTimestamp("TIMESTAMP"), rs.getString("message")));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return res;
     }
 }

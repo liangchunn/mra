@@ -12,14 +12,14 @@ public class Configuration {
 	private static final String SERVER = "localhost";
 	private static final String TYPE = "mysql";
 	private static final int PORT = 3306;
-	private static final String DATABASE = "swtVR";
+    private static final String DATABASE = "mra";
 	private static final String USER = "root";
 	/**
 	 * This password in stored in plaintext. We assume that only the owner can
 	 * access this file and that all login data is tranfered in an encrypted way
 	 * (e.g. SSL).
 	 */
-	private static final String PASSWORD = "trivago123";
+    private static final String PASSWORD = "admin";
 
 	public static String getServer() {
 		return SERVER;

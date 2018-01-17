@@ -2,10 +2,10 @@
   <artifact type="exploded-war" name="VR:Web2 exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/VR_Web2_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="VR/web/Web2" />
+      <element id="javaee-facet-resources" facet="mra/web/Web2" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="VR" />
+          <element id="module-output" name="mra" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="module" name="junit4" module-name="VR" />
