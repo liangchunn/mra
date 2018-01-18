@@ -103,7 +103,6 @@ public class ChatWebpage extends HttpServlet {
                     if (!messages.isEmpty()) {
                         request.setAttribute("pagetitle", "Showing Messages of " + request.getParameter("groupName") + " Group");
                         try {
-//                            request.getRequestDispatcher("/templates/receiveMessages.ftl").forward(request, response);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
