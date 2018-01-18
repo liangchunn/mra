@@ -9,6 +9,6 @@ import java.util.ArrayList;
  *
  */
 public interface UCmds {
-	boolean createGroup(String groupName, Integer adminId, ArrayList<Integer> memberIds);
-	boolean addUserToGroup(String groupName, Integer userId);
+	boolean createGroup(String groupName, String adminUserName, ArrayList<String> memberUserNames);
+	boolean addUserToGroup(String groupName, String userName);
 }

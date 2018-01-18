@@ -45,17 +45,16 @@ public class UserGUI extends HttpServlet {
         request.setAttribute("navtype", "guest");
         if (request.getParameter("action").equals("createGroup")) {
             try {
-                ArrayList<Integer> n = new ArrayList();
-                String[] splitted = request.getParameter("memberIds").split(",");
-                for (Integer i = 0; i < splitted.length; i++) {
-                    n.add(Integer.parseInt(splitted[i]));
+                ArrayList<String> splitUserNames = new ArrayList<>();
+                String[] splitUserNamesIntermediate = request.getParameter("memberUserNames").split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+                for (int i = 0; i < splitUserNamesIntermediate.length; i++) {
+                    splitUserNames.add(splitUserNamesIntermediate[i]);
                 }
                 boolean success = MRAApplication.getInstance().createGroup(
                         request.getParameter("groupName"),
-                        Integer.parseInt(request.getParameter("adminId")),
-                        n
+                        request.getParameter("adminUserName"),
+                        splitUserNames
                 );
-                System.out.println(success);
                 if (success) {
                     request.setAttribute("pagetitle", "Create Group Successful");
                     request.setAttribute("message", "Successfully created group.");
@@ -86,8 +85,8 @@ public class UserGUI extends HttpServlet {
         } else if (request.getParameter("action").equals("addUserToGroup")) {
             try {
                 String groupName = request.getParameter("groupName");
-                Integer userId = Integer.parseInt(request.getParameter("userId"));
-                boolean success = MRAApplication.getInstance().addUserToGroup(groupName, userId);
+                String userName = request.getParameter("userName");
+                boolean success = MRAApplication.getInstance().addUserToGroup(groupName, userName);
                 if (success) {
                     request.setAttribute("pagetitle", "Add User Successful");
                     request.setAttribute("message", "Successfully added user to group.");

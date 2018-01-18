@@ -8,8 +8,8 @@
             <input type="text" name="groupName" id="groupName"/>
         </div>
         <div>
-            <label>User ID</label>
-            <input type="text" name="userId" id="userId"/>
+            <label>Username</label>
+            <input type="text" name="userName" id="userName"/>
         </div>
     </fieldset>
     <button type="submit" name="addUserToGroup">Submit</button>

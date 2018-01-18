@@ -19,12 +19,12 @@ public class MRAApplication implements UCmds {
 	}
 
 	@Override
-	public boolean createGroup(String groupName, Integer adminId, ArrayList<Integer> memberIds) {
-		return GroupFacade.getInstance().createGroup(groupName, adminId, memberIds);
+	public boolean createGroup(String groupName, String adminUserName, ArrayList<String> memberUserNames) {
+		return GroupFacade.getInstance().createGroup(groupName, adminUserName, memberUserNames);
 	}
 
 	@Override
-	public boolean addUserToGroup(String groupName, Integer userId) {
-		return GroupFacade.getInstance().addUserToGroup(groupName, userId);
+	public boolean addUserToGroup(String groupName, String userName) {
+		return GroupFacade.getInstance().addUserToGroup(groupName, userName);
 	}
 }
