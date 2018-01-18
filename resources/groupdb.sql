@@ -34,7 +34,7 @@ CREATE TABLE GroupMembers (
   entryId INT AUTO_INCREMENT,
   groupName VARCHAR(20) NOT NULL,
   memberId INT NOT NULL,
-  PRIMARY KEY (entrzId),
+  PRIMARY KEY (entryId),
   FOREIGN KEY (groupName)
     REFERENCES GroupDatabase(groupName)
     ON UPDATE CASCADE,

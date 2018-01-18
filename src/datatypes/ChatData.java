@@ -9,18 +9,30 @@ public class ChatData {
     private String groupName;
     private String creatorName;
     private Timestamp creationTime;
-    private String message;
+    private String messageText;
 
     public ChatData(String groupName, String creatorName, Timestamp creationTime, String message) {
         this.groupName = groupName;
         this.creatorName = creatorName;
         this.creationTime = creationTime;
-        this.message = message;
+        this.messageText = message;
     }
 
     public ChatData(String creatorName, Timestamp creationTime, String message) {
         this.creatorName = creatorName;
         this.creationTime = creationTime;
-        this.message = message;
+        this.messageText = message;
+    }
+
+    public String getCreatorName() {
+        return creatorName;
+    }
+
+    public String getMessageText() {
+        return messageText;
+    }
+
+    public Timestamp getCreationTime() {
+        return creationTime;
     }
 }

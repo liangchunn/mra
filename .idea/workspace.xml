@@ -6,26 +6,20 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5defaf28-ead2-4918-a27d-4ece3adc6e97" name="Default" comment="Chat first commit">
-      <change beforePath="" afterPath="$PROJECT_DIR$/WebContent/templates/chatLogin.ftl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/WebContent/templates/sendMessages.ftl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/datatypes/ChatData.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/interfaces/IChatLogin.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/interfaces/IReceiveMessages.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/interfaces/ISendMessages.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/VR_Web2_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/VR_Web2_exploded.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+    <list default="true" id="5defaf28-ead2-4918-a27d-4ece3adc6e97" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/WebContent/templates/receiveMessages.ftl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/servlets/footer.ftl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/servlets/header.ftl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/servlets/receiveMessages.ftl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/view/receiveMessagesView.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/VR.iml" afterPath="$PROJECT_DIR$/mra.iml" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" />
       <change beforePath="$PROJECT_DIR$/WebContent/templates/footer.ftl" afterPath="$PROJECT_DIR$/WebContent/templates/footer.ftl" />
-      <change beforePath="$PROJECT_DIR$/WebContent/templates/user.ftl" afterPath="$PROJECT_DIR$/WebContent/templates/user.ftl" />
+      <change beforePath="$PROJECT_DIR$/WebContent/templates/header.ftl" afterPath="$PROJECT_DIR$/WebContent/templates/header.ftl" />
+      <change beforePath="$PROJECT_DIR$/mra.iml" afterPath="$PROJECT_DIR$/mra.iml" />
       <change beforePath="$PROJECT_DIR$/resources/groupdb.sql" afterPath="$PROJECT_DIR$/resources/groupdb.sql" />
-      <change beforePath="$PROJECT_DIR$/src/application/MRAApplication.java" afterPath="$PROJECT_DIR$/src/application/MRAApplication.java" />
-      <change beforePath="$PROJECT_DIR$/src/dbadapter/Configuration.java" afterPath="$PROJECT_DIR$/src/dbadapter/Configuration.java" />
+      <change beforePath="$PROJECT_DIR$/src/datatypes/ChatData.java" afterPath="$PROJECT_DIR$/src/datatypes/ChatData.java" />
       <change beforePath="$PROJECT_DIR$/src/dbadapter/GroupFacade.java" afterPath="$PROJECT_DIR$/src/dbadapter/GroupFacade.java" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/UCmds.java" afterPath="$PROJECT_DIR$/src/interfaces/UCmds.java" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/Chat.java" afterPath="$PROJECT_DIR$/src/servlets/ChatWebpage.java" />
+      <change beforePath="$PROJECT_DIR$/src/servlets/ChatWebpage.java" afterPath="$PROJECT_DIR$/src/servlets/ChatWebpage.java" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,8 +43,8 @@
       <file leaf-file-name="ChatWebpage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/servlets/ChatWebpage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="71" column="96" lean-forward="false" selection-start-line="71" selection-start-column="96" selection-end-line="71" selection-end-column="96" />
+            <state relative-caret-position="192">
+              <caret line="101" column="20" lean-forward="false" selection-start-line="101" selection-start-column="20" selection-end-line="101" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,17 +56,64 @@
         <entry file="file://$PROJECT_DIR$/WebContent/templates/footer.ftl">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+              <caret line="2" column="19" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IReceiveMessages.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/interfaces/IReceiveMessages.java">
+      <file leaf-file-name="header.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/templates/header.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+            <state relative-caret-position="629">
+              <caret line="37" column="61" lean-forward="true" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="receiveMessages.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/servlets/receiveMessages.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChatData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/datatypes/ChatData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-53">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding>
+                <element signature="e#746#747#0" expanded="true" />
+                <element signature="e#780#781#0" expanded="true" />
+                <element signature="e#818#819#0" expanded="true" />
+                <element signature="e#852#853#0" expanded="true" />
+                <element signature="e#894#895#0" expanded="true" />
+                <element signature="e#929#930#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="receiveMessages.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/templates/receiveMessages.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="receiveMessagesView.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/view/receiveMessagesView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="77" column="21" lean-forward="false" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -83,31 +124,11 @@
       <file leaf-file-name="UserGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/servlets/UserGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="71" column="21" lean-forward="false" selection-start-line="68" selection-start-column="20" selection-end-line="71" selection-end-column="21" />
+            <state relative-caret-position="527">
+              <caret line="89" column="97" lean-forward="false" selection-start-line="89" selection-start-column="97" selection-end-line="89" selection-end-column="97" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="okRepresentation.ftl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/templates/okRepresentation.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sendMessages.ftl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/templates/sendMessages.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -122,45 +143,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UCmds.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/interfaces/UCmds.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GroupFacade.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GroupFacade.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dbadapter/GroupFacade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-464">
-              <caret line="239" column="105" lean-forward="true" selection-start-line="239" selection-start-column="105" selection-end-line="239" selection-end-column="105" />
+            <state relative-caret-position="1856">
+              <caret line="297" column="103" lean-forward="false" selection-start-line="297" selection-start-column="103" selection-end-line="297" selection-end-column="103" />
               <folding>
-                <marker date="1516215562560" expanded="true" signature="1020:1072" ph="SELECT count... GroupDatabase" />
-                <marker date="1516215562560" expanded="true" signature="2516:2569" ph="SELECT membe... GroupDatabase" />
-                <marker date="1516215562560" expanded="true" signature="3772:3826" ph="UPDATE GroupDatabase... " />
-                <marker date="1516215562560" expanded="true" signature="5847:5921" ph="INSERT INTO GroupDatabase... " />
-                <marker date="1516215562560" expanded="true" signature="7265:7328" ph="SELECT * FRO... GroupMembers" />
-                <marker date="1516215562560" expanded="true" signature="8510:8553" ph="SELECT userN... users" />
-                <marker date="1516215562560" expanded="true" signature="9706:9718" ph="INSERT INTO GroupDatabase... " />
-                <marker date="1516215562560" expanded="true" signature="9706:9781" ph="INSERT INTO ChatDatabase... " />
-                <marker date="1516215562560" expanded="true" signature="11101:11176" ph="SELECT * FRO... ChatDatabase" />
-                <marker date="1516215562560" expanded="true" signature="11144:11156" ph="INSERT INTO ChatDatabase... " />
+                <marker date="1516228773765" expanded="true" signature="1027:1079" ph="SELECT count... GroupDatabase" />
+                <marker date="1516228773765" expanded="true" signature="2523:2576" ph="SELECT membe... GroupDatabase" />
+                <marker date="1516228773765" expanded="true" signature="3779:3830" ph="UPDATE GroupDatabase... " />
+                <marker date="1516228773765" expanded="true" signature="5438:5498" ph="INSERT INTO GroupDatabase... " />
+                <marker date="1516228773765" expanded="true" signature="6185:6245" ph="INSERT INTO GroupMembers... " />
+                <marker date="1516228773765" expanded="true" signature="7790:7853" ph="SELECT * FRO... GroupMembers" />
+                <marker date="1516228773765" expanded="true" signature="8943:8986" ph="SELECT userN... users" />
+                <marker date="1516228773765" expanded="true" signature="10135:10147" ph="INSERT INTO GroupDatabase... " />
+                <marker date="1516228773765" expanded="true" signature="10135:10210" ph="INSERT INTO ChatDatabase... " />
+                <marker date="1516228773765" expanded="true" signature="11426:11504" ph="SELECT * FRO... ChatDatabase" />
+                <marker date="1516228773765" expanded="true" signature="11472:11484" ph="INSERT INTO ChatDatabase... " />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ISendMessages.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/interfaces/ISendMessages.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="57" lean-forward="false" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -177,7 +177,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>welcome</find>
       <find>servlet</find>
       <find>GCmds</find>
       <find>.ftl</find>
@@ -207,7 +206,11 @@
       <find>user</find>
       <find>user.ftl</find>
       <find>chatlogin</find>
+      <find>&quot;</find>
     </findStrings>
+    <replaceStrings>
+      <replace>\&quot;</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>C:\Users\Cody\IdeaProjects\mra</dir>
     </dirStrings>
@@ -215,6 +218,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="CodySoliman &lt;codysoliman@gmail.com&gt;" />
         <option value="codysoliman@gmail.com" />
       </list>
     </option>
@@ -255,22 +259,25 @@
         <option value="$PROJECT_DIR$/src/servlets/Chat.java" />
         <option value="$PROJECT_DIR$/src/interfaces/IChatLogin.java" />
         <option value="$PROJECT_DIR$/src/interfaces/ICheckIfGroupNameExists.java" />
-        <option value="$PROJECT_DIR$/src/datatypes/ChatData.java" />
         <option value="$PROJECT_DIR$/src/interfaces/IReceiveMessages.java" />
-        <option value="$PROJECT_DIR$/WebContent/templates/header.ftl" />
         <option value="$PROJECT_DIR$/src/dbadapter/Configuration.java" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/WebContent/templates/user.ftl" />
-        <option value="$PROJECT_DIR$/resources/groupdb.sql" />
         <option value="$PROJECT_DIR$/src/servlets/UserGUI.java" />
         <option value="$PROJECT_DIR$/WebContent/templates/chatLogin.ftl" />
         <option value="$PROJECT_DIR$/WebContent/templates/sendMessages.ftl" />
         <option value="$PROJECT_DIR$/src/interfaces/UCmds.java" />
         <option value="$PROJECT_DIR$/src/application/MRAApplication.java" />
-        <option value="$PROJECT_DIR$/src/dbadapter/GroupFacade.java" />
         <option value="$PROJECT_DIR$/src/interfaces/ISendMessages.java" />
-        <option value="$PROJECT_DIR$/src/servlets/ChatWebpage.java" />
         <option value="$PROJECT_DIR$/WebContent/templates/footer.ftl" />
+        <option value="$PROJECT_DIR$/resources/groupdb.sql" />
+        <option value="$PROJECT_DIR$/src/dbadapter/GroupFacade.java" />
+        <option value="$PROJECT_DIR$/src/servlets/receiveMessages.ftl" />
+        <option value="$PROJECT_DIR$/src/datatypes/ChatData.java" />
+        <option value="$PROJECT_DIR$/WebContent/templates/receiveMessages.ftl" />
+        <option value="$PROJECT_DIR$/src/servlets/ChatWebpage.java" />
+        <option value="$PROJECT_DIR$/WebContent/templates/header.ftl" />
+        <option value="$PROJECT_DIR$/src/view/receiveMessagesView.java" />
       </list>
     </option>
   </component>
@@ -423,7 +430,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
@@ -496,11 +502,16 @@
               <item name="WebContent" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="mra" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -510,20 +521,26 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="$USER_HOME$/.nvm/versions/node/v8.9.1/bin/node" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="last_opened_file_path" value="D:/UDE/Softwaretechnick/Lab/VR" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apache-freemarker-2.3.27-incubating-bin" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="JAVA" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Cody\IdeaProjects\mra\WebContent\templates" />
+      <recent name="C:\Users\Cody\IdeaProjects\mra\src\servlets" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="interfaces" />
       <recent name="datatypes" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Cody\IdeaProjects\mra\src\servlets" />
       <recent name="C:\Users\Cody\IdeaProjects\mra\WebContent\templates" />
       <recent name="C:\Users\Cody\IdeaProjects\mra\resources" />
     </key>
@@ -1018,7 +1035,8 @@
       <workItem from="1516031206468" duration="1202000" />
       <workItem from="1516194969807" duration="135000" />
       <workItem from="1516195238017" duration="1141000" />
-      <workItem from="1516196530289" duration="18362000" />
+      <workItem from="1516196530289" duration="23495000" />
+      <workItem from="1516228587611" duration="13102000" />
     </task>
     <task id="LOCAL-00001" summary="Chat first commit">
       <created>1516189687983</created>
@@ -1027,11 +1045,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516189687983</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Chat first commit">
+      <created>1516217385625</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1516217385626</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44024000" />
+    <option name="totallyTimeSpent" value="62259000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1056,12 +1081,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2777778" sideWeight="0.5121359" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951653" sideWeight="0.4914163" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2777778" sideWeight="0.48786408" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33090615" sideWeight="0.49335864" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22734627" sideWeight="0.49335864" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12160229" sideWeight="0.5066414" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24919094" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1149,6 +1174,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Chat first commit" />
     <option name="LAST_COMMIT_MESSAGE" value="Chat first commit" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1161,12 +1188,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/dbadapter/DBFacade.java" />
-    <entry file="file://$PROJECT_DIR$/src/dbadapter/HolidayOffer.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/NumberFormatException.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/sql/PreparedStatement.java" />
-    <entry file="file://$PROJECT_DIR$/WebContent/templates/defaultWebpageS.ftl" />
-    <entry file="file://$PROJECT_DIR$/WebContent/templates/showBookHolidayOfferForm.ftl" />
     <entry file="file://$PROJECT_DIR$/WebContent/templates/showConfirmMake.ftl" />
     <entry file="file://$PROJECT_DIR$/WebContent/templates/offersRepresentation.ftl" />
     <entry file="file://$PROJECT_DIR$/WebContent/templates/defaultWebpageG.ftl" />
@@ -1243,7 +1264,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1287,14 +1307,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/datatypes/ChatData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="96" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/templates/createGroup.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1307,7 +1319,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="747" column="0" lean-forward="false" selection-start-line="747" selection-start-column="0" selection-end-line="747" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1319,26 +1330,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/templates/header.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-53">
-          <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="58" column="22" lean-forward="false" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/groupdb.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="36" column="22" lean-forward="false" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1378,25 +1373,7 @@
     <entry file="file://$PROJECT_DIR$/WebContent/templates/sendMessages.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/interfaces/UCmds.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/MRAApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="39" column="48" lean-forward="false" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
+          <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1417,30 +1394,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlets/UserGUI.java">
+    <entry file="file://$PROJECT_DIR$/resources/groupdb.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="71" column="21" lean-forward="false" selection-start-line="68" selection-start-column="20" selection-end-line="71" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="561">
+          <caret line="33" column="29" lean-forward="false" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlets/ChatWebpage.java">
+    <entry file="file://$PROJECT_DIR$/src/interfaces/UCmds.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="71" column="96" lean-forward="false" selection-start-line="71" selection-start-column="96" selection-end-line="71" selection-end-column="96" />
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/templates/footer.ftl">
+    <entry file="file://$PROJECT_DIR$/src/application/MRAApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        <state relative-caret-position="321">
+          <caret line="39" column="48" lean-forward="false" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dbadapter/GroupFacade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1856">
+          <caret line="297" column="103" lean-forward="false" selection-start-line="297" selection-start-column="103" selection-end-line="297" selection-end-column="103" />
+          <folding>
+            <marker date="1516228773765" expanded="true" signature="1027:1079" ph="SELECT count... GroupDatabase" />
+            <marker date="1516228773765" expanded="true" signature="2523:2576" ph="SELECT membe... GroupDatabase" />
+            <marker date="1516228773765" expanded="true" signature="3779:3830" ph="UPDATE GroupDatabase... " />
+            <marker date="1516228773765" expanded="true" signature="5438:5498" ph="INSERT INTO GroupDatabase... " />
+            <marker date="1516228773765" expanded="true" signature="6185:6245" ph="INSERT INTO GroupMembers... " />
+            <marker date="1516228773765" expanded="true" signature="7790:7853" ph="SELECT * FRO... GroupMembers" />
+            <marker date="1516228773765" expanded="true" signature="8943:8986" ph="SELECT userN... users" />
+            <marker date="1516228773765" expanded="true" signature="10135:10147" ph="INSERT INTO GroupDatabase... " />
+            <marker date="1516228773765" expanded="true" signature="10135:10210" ph="INSERT INTO ChatDatabase... " />
+            <marker date="1516228773765" expanded="true" signature="11426:11504" ph="SELECT * FRO... ChatDatabase" />
+            <marker date="1516228773765" expanded="true" signature="11472:11484" ph="INSERT INTO ChatDatabase... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1450,26 +1453,100 @@
         <state relative-caret-position="170">
           <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
           <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlets/UserGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="89" column="97" lean-forward="false" selection-start-line="89" selection-start-column="97" selection-end-line="89" selection-end-column="97" />
+          <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dbadapter/GroupFacade.java">
+    <entry file="jar://$PROJECT_DIR$/apache-freemarker-2.3.27-incubating-bin/freemarker.jar!/freemarker/template/Configuration.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-464">
-          <caret line="239" column="105" lean-forward="true" selection-start-line="239" selection-start-column="105" selection-end-line="239" selection-end-column="105" />
+        <state relative-caret-position="7784">
+          <caret line="858" column="5" lean-forward="false" selection-start-line="858" selection-start-column="5" selection-end-line="858" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlets/footer.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlets/ChatWebpage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="101" column="20" lean-forward="false" selection-start-line="101" selection-start-column="20" selection-end-line="101" selection-end-column="20" />
           <folding>
-            <marker date="1516215562560" expanded="true" signature="1020:1072" ph="SELECT count... GroupDatabase" />
-            <marker date="1516215562560" expanded="true" signature="2516:2569" ph="SELECT membe... GroupDatabase" />
-            <marker date="1516215562560" expanded="true" signature="3772:3826" ph="UPDATE GroupDatabase... " />
-            <marker date="1516215562560" expanded="true" signature="5847:5921" ph="INSERT INTO GroupDatabase... " />
-            <marker date="1516215562560" expanded="true" signature="7265:7328" ph="SELECT * FRO... GroupMembers" />
-            <marker date="1516215562560" expanded="true" signature="8510:8553" ph="SELECT userN... users" />
-            <marker date="1516215562560" expanded="true" signature="9706:9718" ph="INSERT INTO GroupDatabase... " />
-            <marker date="1516215562560" expanded="true" signature="9706:9781" ph="INSERT INTO ChatDatabase... " />
-            <marker date="1516215562560" expanded="true" signature="11101:11176" ph="SELECT * FRO... ChatDatabase" />
-            <marker date="1516215562560" expanded="true" signature="11144:11156" ph="INSERT INTO ChatDatabase... " />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/templates/footer.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="19" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/datatypes/ChatData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-53">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="e#746#747#0" expanded="true" />
+            <element signature="e#780#781#0" expanded="true" />
+            <element signature="e#818#819#0" expanded="true" />
+            <element signature="e#852#853#0" expanded="true" />
+            <element signature="e#894#895#0" expanded="true" />
+            <element signature="e#929#930#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlets/receiveMessages.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/templates/header.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" column="61" lean-forward="true" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/templates/receiveMessages.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/receiveMessagesView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="77" column="21" lean-forward="false" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1493,7 +1570,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Web (VR)|Web</last-edited>
+          <last-edited>Web</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1528,7 +1605,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Web|VR</last-edited>
+          <last-edited>mra</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
