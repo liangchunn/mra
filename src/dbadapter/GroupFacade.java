@@ -2,6 +2,7 @@ package dbadapter;
 
 import datatypes.ChatData;
 import interfaces.*;
+import extraClasses.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by liangchun on 14.01.18.
  */
-public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, ICreateGroup, IChatLogin, IReceiveMessages, ISendMessages {
+public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, ICreateGroup, IChatLogin, IReceiveMessages, ISendMessages, ILeaveGroup {
     private static GroupFacade instance;
 
     private GroupFacade() {
@@ -249,7 +250,7 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
 
 
     @Override
-    public boolean sendMessages(String groupName, Integer userId, String message) {
+    public boolean saveMessage(String groupName, Integer userId, String message) {
         String creatorName = getUserName(userId);
         String sqlQuery = "INSERT INTO ChatDatabase (groupName, creatorName, message) VALUES (?, ?, ?);";
         try (Connection connection = DriverManager.getConnection(
@@ -282,7 +283,7 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
     }
 
     @Override
-    public ArrayList<ChatData> receiveMessages(String groupName) {
+    public ArrayList<ChatData> showMessages(String groupName) {
         String sqlQuery = "SELECT message,creatorName, creationTime FROM ChatDatabase WHERE groupName = ?;";
         ArrayList<ChatData> res = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(
@@ -306,5 +307,96 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
             e.printStackTrace();
         }
         return res;
+    }
+
+    private boolean deleteGroup(String groupName) {
+        String sqlQueryA = "DELETE FROM groupdatabase WHERE groupName = ?;";
+        String sqlQueryB = "DELETE FROM groupmembers WHERE groupName = ?;";
+        try (Connection connection = DriverManager.getConnection(
+                "jdbc:" + Configuration.getType() + "://"
+                        + Configuration.getServer() + ":"
+                        + Configuration.getPort() + "/"
+                        + Configuration.getDatabase(), Configuration.getUser(),
+                Configuration.getPassword())) {
+            try (PreparedStatement psA = connection.prepareStatement(sqlQueryA)) {
+                psA.setString(1, groupName);
+                try {
+                    int rows = psA.executeUpdate();
+                    if (rows > 0) {
+                        try (PreparedStatement psB = connection.prepareStatement(sqlQueryB)) {
+                            psB.setString(1, groupName);
+                            rows = psB.executeUpdate();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        return true;
+                    } else
+                        return false;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private boolean removeUser(String groupName, Integer userId) {
+        String sqlQueryA = "DELETE FROM groupmembers WHERE groupName = ? AND memberId = ?;";
+        try (Connection connection = DriverManager.getConnection(
+                "jdbc:" + Configuration.getType() + "://"
+                        + Configuration.getServer() + ":"
+                        + Configuration.getPort() + "/"
+                        + Configuration.getDatabase(), Configuration.getUser(),
+                Configuration.getPassword())) {
+            try (PreparedStatement psA = connection.prepareStatement(sqlQueryA)) {
+                psA.setString(1, groupName);
+                psA.setInt(2, userId);
+                try {
+                    int rows = psA.executeUpdate();
+                    if (rows > 0)
+                        return true;
+                    else
+                        return false;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public MyResult leaveGroup(String groupName, Integer userId) {
+        String sqlQuery = "SELECT adminId FROM groupdatabase WHERE groupName = ?;";
+        try (Connection connection = DriverManager.getConnection(
+                "jdbc:" + Configuration.getType() + "://"
+                        + Configuration.getServer() + ":"
+                        + Configuration.getPort() + "/"
+                        + Configuration.getDatabase(), Configuration.getUser(),
+                Configuration.getPassword())) {
+            try (PreparedStatement ps = connection.prepareStatement(sqlQuery)) {
+                ps.setString(1, groupName);
+                try {
+                    ResultSet res = ps.executeQuery();
+                    if (res.next() && Integer.parseInt(res.getString("adminId")) == userId)
+                        return new MyResult(deleteGroup(groupName), 1);
+                    else
+                        return new MyResult(removeUser(groupName, userId), 2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new MyResult(false, 0);
     }
 }
