@@ -27,8 +27,10 @@ CREATE TABLE GroupDatabase (
   UNIQUE (groupName),
   FOREIGN  KEY (adminId)
     REFERENCES Users(userId)
+    ON DELETE CASCADE
     ON UPDATE CASCADE
 );
+
 
 CREATE TABLE GroupMembers (
   entryId INT AUTO_INCREMENT,
@@ -37,9 +39,11 @@ CREATE TABLE GroupMembers (
   PRIMARY KEY (entryId),
   FOREIGN KEY (groupName)
     REFERENCES GroupDatabase(groupName)
+    ON DELETE CASCADE
     ON UPDATE CASCADE,
   FOREIGN KEY (memberId)
     REFERENCES Users(userId)
+    ON DELETE CASCADE
     ON UPDATE CASCADE
 );
 
