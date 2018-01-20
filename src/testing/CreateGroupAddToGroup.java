@@ -34,7 +34,7 @@ public class CreateGroupAddToGroup {
     @Test
     public final void getUserIdValid() {
         final String SAMPLE_USER_NAME = "SAMPLE_USERNAME";
-        String SQL_SELECT_USER_ID = "SELECT userId FROM Users WHERE userName=?";
+        final String SQL_SELECT_USER_ID = "SELECT userId FROM Users WHERE userName=?";
         try {
             Connection stubConnection = mock(Connection.class);
             PreparedStatement ps = mock(PreparedStatement.class);
@@ -63,7 +63,7 @@ public class CreateGroupAddToGroup {
     @Test
     public final void getUserIdInvalid() {
         final String SAMPLE_USER_NAME = "SAMPLE_USERNAME";
-        String SQL_SELECT_USER_ID = "SELECT userId FROM Users WHERE userName=?";
+        final String SQL_SELECT_USER_ID = "SELECT userId FROM Users WHERE userName=?";
         try {
             Connection stubConnection = mock(Connection.class);
             PreparedStatement ps = mock(PreparedStatement.class);
