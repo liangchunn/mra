@@ -6,16 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5defaf28-ead2-4918-a27d-4ece3adc6e97" name="Default" comment="SQL Queries updated to cascade on FKs deletion">
+    <list default="true" id="5defaf28-ead2-4918-a27d-4ece3adc6e97" name="Default" comment="Testing completed:&#10;- Send Messages&#10;- Receive Messages">
       <change beforePath="" afterPath="$PROJECT_DIR$/src/temp/sendingMessageTest.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/testing/tests/GroupFacadeTest.java" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/WebContent/templates/footer.ftl" afterPath="$PROJECT_DIR$/WebContent/templates/footer.ftl" />
       <change beforePath="$PROJECT_DIR$/WebContent/templates/header.ftl" afterPath="$PROJECT_DIR$/WebContent/templates/header.ftl" />
-      <change beforePath="$PROJECT_DIR$/mra.iml" afterPath="$PROJECT_DIR$/mra.iml" />
-      <change beforePath="$PROJECT_DIR$/src/dbadapter/GroupFacade.java" afterPath="$PROJECT_DIR$/src/dbadapter/GroupFacade.java" />
-      <change beforePath="$PROJECT_DIR$/src/testing/sendingMessageTest.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/resources/groupdb.sql" afterPath="$PROJECT_DIR$/resources/groupdb.sql" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,6 +62,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="groupdb.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/groupdb.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1071">
+              <caret line="63" column="4" lean-forward="false" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="receiveMessagesView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/receiveMessagesView.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -79,8 +85,8 @@
       <file leaf-file-name="GroupFacade.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dbadapter/GroupFacade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="310" column="0" lean-forward="false" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
+            <state relative-caret-position="30">
+              <caret line="99" column="26" lean-forward="false" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="26" />
               <folding>
                 <marker date="1516395678238" expanded="true" signature="1063:1115" ph="SELECT count... GroupDatabase" />
                 <marker date="1516395678238" expanded="true" signature="2559:2612" ph="SELECT membe... GroupDatabase" />
@@ -105,16 +111,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GroupFacadeTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GroupFacadeTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/testing/tests/GroupFacadeTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1127">
-              <caret line="150" column="58" lean-forward="false" selection-start-line="150" selection-start-column="58" selection-end-line="150" selection-end-column="58" />
+              <caret line="149" column="58" lean-forward="false" selection-start-line="149" selection-start-column="58" selection-end-line="149" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1516453249319" expanded="true" signature="1217:1292" ph="INSERT INTO ChatDatabase... " />
-                <marker date="1516453249319" expanded="true" signature="1324:1367" ph="SELECT userN... users" />
-                <marker date="1516453249319" expanded="true" signature="3865:3943" ph="SELECT messa... ChatDatabase" />
+                <marker date="1516453429375" expanded="true" signature="1216:1291" ph="INSERT INTO ChatDatabase... " />
+                <marker date="1516453429375" expanded="true" signature="1323:1366" ph="SELECT userN... users" />
+                <marker date="1516453429375" expanded="true" signature="3864:3942" ph="SELECT messa... ChatDatabase" />
               </folding>
             </state>
           </provider>
@@ -143,7 +149,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>arrivalTimesql</find>
       <find>configuration</find>
       <find>DBFacade</find>
       <find>getAvailableHolidayOffers</find>
@@ -171,8 +176,9 @@
       <find>update</find>
       <find>sendmessages</find>
       <find>stubcon</find>
-      <find>exec</find>
       <find>save</find>
+      <find>exec</find>
+      <find>adduser</find>
     </findStrings>
     <replaceStrings>
       <replace>\&quot;</replace>
@@ -245,7 +251,6 @@
         <option value="$PROJECT_DIR$/src/application/MRAApplication.java" />
         <option value="$PROJECT_DIR$/WebContent/templates/leaveGroup.ftl" />
         <option value="$PROJECT_DIR$/src/servlets/UserGUI.java" />
-        <option value="$PROJECT_DIR$/resources/groupdb.sql" />
         <option value="$PROJECT_DIR$/src/testing/sendingMessageTest.java" />
         <option value="$PROJECT_DIR$/src/temp/sendingMessageTest.java" />
         <option value="$PROJECT_DIR$/src/testing/dbadapter/GroupFacadeTest.java" />
@@ -254,6 +259,7 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/temp/world.java" />
         <option value="$PROJECT_DIR$/src/testing/tests/GroupFacadeTest.java" />
+        <option value="$PROJECT_DIR$/resources/groupdb.sql" />
       </list>
     </option>
   </component>
@@ -531,7 +537,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GroupFacadeTest (1)">
+  <component name="RunManager" selected="Tomcat Server.Tomcat">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -1100,7 +1106,7 @@
       <workItem from="1516196530289" duration="23495000" />
       <workItem from="1516228587611" duration="17021000" />
       <workItem from="1516367278870" duration="7987000" />
-      <workItem from="1516387168154" duration="11654000" />
+      <workItem from="1516387168154" duration="12239000" />
     </task>
     <task id="LOCAL-00001" summary="Chat first commit">
       <created>1516189687983</created>
@@ -1144,7 +1150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1516374712840</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Testing completed:&#10;- Send Messages&#10;- Receive Messages">
+      <created>1516453505205</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1516453505205</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1180,7 +1193,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85819000" />
+    <option name="totallyTimeSpent" value="86404000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1305,7 +1318,8 @@
     <MESSAGE value="Temp Files deleted" />
     <MESSAGE value="R13 Added - Delete Group on admin Leave" />
     <MESSAGE value="SQL Queries updated to cascade on FKs deletion" />
-    <option name="LAST_COMMIT_MESSAGE" value="SQL Queries updated to cascade on FKs deletion" />
+    <MESSAGE value="Testing completed:&#10;- Send Messages&#10;- Receive Messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing completed:&#10;- Send Messages&#10;- Receive Messages" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1477,6 +1491,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="19" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1484,6 +1499,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="37" column="61" lean-forward="false" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1586,14 +1602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/groupdb.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="45" column="21" lean-forward="false" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/templates/leaveGroup.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1652,10 +1660,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/testing/tests/GroupFacadeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1127">
+          <caret line="149" column="58" lean-forward="false" selection-start-line="149" selection-start-column="58" selection-end-line="149" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1516453429375" expanded="true" signature="1216:1291" ph="INSERT INTO ChatDatabase... " />
+            <marker date="1516453429375" expanded="true" signature="1323:1366" ph="SELECT userN... users" />
+            <marker date="1516453429375" expanded="true" signature="3864:3942" ph="SELECT messa... ChatDatabase" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/dbadapter/GroupFacade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="310" column="0" lean-forward="false" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
+        <state relative-caret-position="30">
+          <caret line="99" column="26" lean-forward="false" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="26" />
           <folding>
             <marker date="1516395678238" expanded="true" signature="1063:1115" ph="SELECT count... GroupDatabase" />
             <marker date="1516395678238" expanded="true" signature="2559:2612" ph="SELECT membe... GroupDatabase" />
@@ -1679,16 +1700,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/testing/tests/GroupFacadeTest.java">
+    <entry file="file://$PROJECT_DIR$/resources/groupdb.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1127">
-          <caret line="150" column="58" lean-forward="false" selection-start-line="150" selection-start-column="58" selection-end-line="150" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1516453249319" expanded="true" signature="1217:1292" ph="INSERT INTO ChatDatabase... " />
-            <marker date="1516453249319" expanded="true" signature="1324:1367" ph="SELECT userN... users" />
-            <marker date="1516453249319" expanded="true" signature="3865:3943" ph="SELECT messa... ChatDatabase" />
-          </folding>
+        <state relative-caret-position="1071">
+          <caret line="63" column="4" lean-forward="false" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>

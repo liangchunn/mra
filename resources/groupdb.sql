@@ -57,9 +57,11 @@ CREATE TABLE ChatDatabase (
   PRIMARY KEY (messageId),
   FOREIGN KEY (groupName)
     REFERENCES GroupDatabase(groupName)
+    ON DELETE CASCADE
     ON UPDATE CASCADE,
   FOREIGN KEY (creatorName)
     REFERENCES Users(userName)
+    ON DELETE CASCADE
     ON UPDATE CASCADE
 );
 
