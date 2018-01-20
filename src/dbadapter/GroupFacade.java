@@ -195,6 +195,7 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
     @Override
     public boolean chatLogin(String groupName, Integer userId) {
         String sqlQuery = "SELECT * FROM GroupMembers WHERE groupName = ? AND memberId = ?;";
+        String sqlQueryB = "SELECT * FROM GroupDatabase WHERE groupName = ? AND adminId = ?;";
         try (Connection connection = DriverManager.getConnection(
                 "jdbc:" + Configuration.getType() + "://"
                         + Configuration.getServer() + ":"
@@ -207,8 +208,20 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
                 try (ResultSet rs = ps.executeQuery()) {
                     if (rs.next())
                         return true;
-                    else
-                        return false;
+                    else {
+                        try (PreparedStatement psB = connection.prepareStatement(sqlQueryB)) {
+                            psB.setString(1, groupName);
+                            psB.setInt(2, userId);
+                            try (ResultSet rsB = psB.executeQuery()) {
+                                if (rsB.next())
+                                    return true;
+                                else
+                                    return false;
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
