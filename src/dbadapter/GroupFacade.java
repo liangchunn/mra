@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, ICreateGroup, IChatLogin, IReceiveMessages, ISendMessages, ILeaveGroup {
     private static GroupFacade instance;
 
-    private GroupFacade() {
+    protected GroupFacade() {
         try {
             Class.forName("com." + Configuration.getType() + ".jdbc.Driver")
                     .newInstance();
@@ -322,7 +322,7 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
         return res;
     }
 
-    private boolean deleteGroup(String groupName) {
+    public boolean deleteGroup(String groupName) {
         String sqlQueryA = "DELETE FROM groupdatabase WHERE groupName = ?;";
         String sqlQueryB = "DELETE FROM groupmembers WHERE groupName = ?;";
         try (Connection connection = DriverManager.getConnection(
@@ -338,7 +338,7 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
                     if (rows > 0) {
                         try (PreparedStatement psB = connection.prepareStatement(sqlQueryB)) {
                             psB.setString(1, groupName);
-                            rows = psB.executeUpdate();
+                            psB.executeUpdate();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

@@ -18,9 +18,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import datatypes.ChatData;
+import extraClasses.MyResult;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -88,14 +90,46 @@ public class GroupFacadeTest {
             verify(stubCon, times(1)).prepareStatement(sqlQueryB);
             verify(psB, times(1)).executeQuery();
 
-//            String checkUserName = GroupFacade.getInstance().getUserName(1);
-//            verify(stubCon, times(2)).prepareStatement(sqlQueryB);
-//            verify(psB, times(2)).executeQuery();
-
             // Verify return values
             assertTrue(check == true);
-//            System.out.println(checkUserName);
-//            assertEquals("Soliman", checkUserName);
+            // ...
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public final void testGetUsername() {
+        String sqlQuery = "SELECT userName FROM users WHERE userId = ?;";
+        try {
+            // Setting up return values for connection and statements
+            Connection stubCon = mock(Connection.class);
+            PreparedStatement ps = mock(PreparedStatement.class);
+            ResultSet rs = mock(ResultSet.class);
+            PowerMockito.when(
+                    DriverManager.getConnection(
+                            "jdbc:" + Configuration.getType() + "://"
+                                    + Configuration.getServer() + ":"
+                                    + Configuration.getPort() + "/"
+                                    + Configuration.getDatabase(),
+                            Configuration.getUser(),
+                            Configuration.getPassword())).thenReturn(stubCon);
+
+            when(stubCon.prepareStatement(sqlQuery)).thenReturn(ps);
+            when(ps.executeQuery()).thenReturn(rs);
+
+            // Setting up return values for methods
+            when(rs.next()).thenReturn(true).thenReturn(false);
+            when(rs.getString("userName")).thenReturn("Soliman");
+
+            // Verify how often a method has been called
+            String checkUserName = GroupFacade.getInstance().getUserName(2);
+            verify(stubCon, times(1)).prepareStatement(sqlQuery);
+            verify(ps, times(1)).executeQuery();
+
+            // Verify return values
+            assertEquals("Soliman", checkUserName);
             // ...
 
         } catch (Exception e) {
@@ -150,6 +184,60 @@ public class GroupFacadeTest {
             assertTrue(messages.get(0).getCreatorName() == "Soliman");
             assertTrue(messages.get(0).getCreationTime() == stubCreationTime);
             assertTrue(messages.get(0).getMessageText() == "Hallo Welt!! :D");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+    @Test
+    public final void testLeaveGroup() {
+        String sqlQuery = "SELECT adminId FROM groupdatabase WHERE groupName = ?;";
+        try {
+            // Setting up return values for connection and statements
+            Connection stubCon = mock(Connection.class);
+            PreparedStatement ps = mock(PreparedStatement.class);
+            ResultSet rs = mock(ResultSet.class);
+            PowerMockito.when(
+                    DriverManager.getConnection(
+                            "jdbc:" + Configuration.getType() + "://"
+                                    + Configuration.getServer() + ":"
+                                    + Configuration.getPort() + "/"
+                                    + Configuration.getDatabase(),
+                            Configuration.getUser(),
+                            Configuration.getPassword())).thenReturn(stubCon);
+
+            when(stubCon.prepareStatement(sqlQuery)).thenReturn(ps);
+            when(ps.executeQuery()).thenReturn(rs);
+
+            GroupFacade stubGroupFacade = new GroupFacade() {
+                @Override
+                public boolean deleteGroup(String groupName) {
+                    return true;
+                }
+            };
+
+            // Setting up return values for methods
+            when(rs.next()).thenReturn(true).thenReturn(false);
+            when(rs.getString("adminId")).thenReturn("6");
+            when(stubGroupFacade.deleteGroup("Hulk")).thenReturn(true);
+
+            MyResult check = GroupFacade.getInstance()
+                    .leaveGroup("Hulk", 6);
+
+
+            // Verify how often a method has been called
+            verify(stubCon, times(1)).prepareStatement(sqlQuery);
+            verify(ps, times(1)).executeQuery();
+            verify(stubGroupFacade, times(1)).deleteGroup("Hulk");
+
+
+            // Verify return values
+            assertTrue(check.getFirst() == true);
+            assertTrue(check.getSecond() == 1);
 
         } catch (Exception e) {
             e.printStackTrace();
