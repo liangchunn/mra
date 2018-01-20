@@ -3,7 +3,7 @@
 ## Setup
 Pre-requisites
 - Apache Tomcat 8.0 installed
-- MySQL installed with the database `swtvr` created (table schema: see below)
+- MySQL installed with the database `mra` created (table schema: see below)
 - Git installed: [download here](https://git-scm.com/download/win)
 
 1. Clone/download the repo

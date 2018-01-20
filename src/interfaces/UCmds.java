@@ -12,11 +12,10 @@ import java.util.ArrayList;
  *
  */
 public interface UCmds {
-	boolean createGroup(String groupName, Integer adminId, ArrayList<Integer> memberIds);
-	boolean addUserToGroup(String groupName, Integer userId);
+	boolean createGroup(String groupName, String adminUserName, ArrayList<String> memberUserNames);
+	boolean addUserToGroup(String groupName, String userName);
 	boolean chatLogin(String groupName, Integer userId);
 	boolean sendMessages(String groupName, Integer userId, String message);
 	ArrayList<ChatData> receiveMessages(String groupName);
-
 	MyResult leaveGroup(String groupName, Integer userId);
 }
