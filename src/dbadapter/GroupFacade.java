@@ -32,7 +32,7 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
         return instance;
     }
 
-    private Integer getUserId(String userName) {
+    public Integer getUserId(String userName) {
         if (userName.length() <= 0 || userName == null) {
             System.out.println("Username cannot be empty or null");
             return null;
@@ -94,6 +94,7 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+
             }
         } catch (Exception e) {
             e.printStackTrace();
