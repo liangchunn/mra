@@ -1,5 +1,8 @@
 build/
 out/
+temp/*
+.idea/*
+.settings/
 *.class
 .idea/
 .settings/

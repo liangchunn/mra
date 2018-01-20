@@ -12,8 +12,10 @@ CREATE TABLE GroupDatabase (
   UNIQUE (groupName),
   FOREIGN  KEY (adminId)
     REFERENCES Users(userId)
+    ON DELETE CASCADE
     ON UPDATE CASCADE
 );
+
 
 CREATE TABLE GroupMembers (
   entryId INT AUTO_INCREMENT,
@@ -22,6 +24,7 @@ CREATE TABLE GroupMembers (
   PRIMARY KEY (entryId),
   FOREIGN KEY (groupName)
     REFERENCES GroupDatabase(groupName)
+    ON DELETE CASCADE
     ON UPDATE CASCADE,
   FOREIGN KEY (memberId)
     REFERENCES Users(userId)
@@ -44,3 +47,22 @@ CREATE TABLE ChatDatabase (
     REFERENCES Users(userName)
     ON UPDATE CASCADE
 );
+
+
+CREATE TABLE ChatDatabase (
+  messageId INT AUTO_INCREMENT,
+  groupName VARCHAR(20) NOT NULL,
+  message LONGTEXT,
+  creatorName VARCHAR(20) NOT NULL,
+  creationTime TIMESTAMP,
+  PRIMARY KEY (messageId),
+  FOREIGN KEY (groupName)
+    REFERENCES GroupDatabase(groupName)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  FOREIGN KEY (creatorName)
+    REFERENCES Users(userName)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+

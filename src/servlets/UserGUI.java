@@ -1,6 +1,7 @@
 package servlets;
 
 import application.MRAApplication;
+import extraClasses.MyResult;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +29,14 @@ public class UserGUI extends HttpServlet {
             request.setAttribute("hid", request.getParameter("hid"));
             try {
                 request.getRequestDispatcher("/templates/addUserToGroup.ftl").forward(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (action.equals("leaveGroup")) {
+            request.setAttribute("pagetitle", "Leave Group");
+            request.setAttribute("hid", request.getParameter("hid"));
+            try {
+                request.getRequestDispatcher("/templates/leaveGroup.ftl").forward(request, response);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -98,6 +107,43 @@ public class UserGUI extends HttpServlet {
                 } else {
                     request.setAttribute("pagetitle", "Add User Failed");
                     request.setAttribute("message", "Failed to add user to group.");
+                    try {
+                        request.getRequestDispatcher("/templates/failInfoRepresentation.ftl").forward(request, response);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (Exception e) {
+                request.setAttribute("pagetitle", "Error");
+                request.setAttribute("message", "Something went wrong!");
+                try {
+                    request.getRequestDispatcher("/templates/failInfoRepresentation.ftl").forward(request, response);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                e.printStackTrace();
+            }
+        } else if (request.getParameter("action").equals("leaveGroup")) {
+            try {
+                String groupName = request.getParameter("groupName");
+                Integer userId = Integer.parseInt(request.getParameter("userId"));
+                MyResult result = MRAApplication.getInstance().leaveGroup(groupName, userId);
+                if (result.getFirst()) {
+                    if (result.getSecond() == 1) {
+                        request.setAttribute("pagetitle", "Leave & Delete Group Successful");
+                        request.setAttribute("message", "User " + userId + " is an admin of " + groupName + "." + "<br />The group is successfully deleted.");
+                    } else if (result.getSecond() == 2) {
+                        request.setAttribute("pagetitle", "Leave Group Successful");
+                        request.setAttribute("message", "User " + userId + " successfully left Group " + groupName + ".");
+                    }
+                    try {
+                        request.getRequestDispatcher("/templates/okRepresentation.ftl").forward(request, response);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    request.setAttribute("pagetitle", "Add User Failed");
+                    request.setAttribute("message", "Failed to remove user from the group.");
                     try {
                         request.getRequestDispatcher("/templates/failInfoRepresentation.ftl").forward(request, response);
                     } catch (Exception e) {

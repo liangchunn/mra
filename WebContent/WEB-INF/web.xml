@@ -60,6 +60,15 @@
     <url-pattern>/user</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>chat_gui</servlet-name>
+    <servlet-class>servlets.ChatWebpage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>chat_gui</servlet-name>
+    <url-pattern>/chat</url-pattern>
+  </servlet-mapping>
+
 
   <servlet>
     <servlet-name>error404_servlet</servlet-name>
