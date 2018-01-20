@@ -37,14 +37,13 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
             System.out.println("Username cannot be empty or null");
             return null;
         }
-        String sqlQuery = "SELECT userId FROM Users WHERE userName=?";
         try (Connection connection = DriverManager.getConnection(
                 "jdbc:" + Configuration.getType() + "://"
                         + Configuration.getServer() + ":"
                         + Configuration.getPort() + "/"
                         + Configuration.getDatabase(), Configuration.getUser(),
                 Configuration.getPassword())) {
-            try (PreparedStatement ps = connection.prepareStatement(sqlQuery)) {
+            try (PreparedStatement ps = connection.prepareStatement(QueryConstants.GroupQueries.GET_USER_ID)) {
                 ps.setString(1, userName);
                 try (ResultSet rs = ps.executeQuery()) {
                     if (rs.first()) {
@@ -72,14 +71,13 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
      */
     @Override
     public boolean checkIfGroupNameExists(String groupName) {
-        String sqlCount = "SELECT count(*) FROM GroupDatabase WHERE groupName=?;";
         try (Connection connection = DriverManager.getConnection(
                 "jdbc:" + Configuration.getType() + "://"
                         + Configuration.getServer() + ":"
                         + Configuration.getPort() + "/"
                         + Configuration.getDatabase(), Configuration.getUser(),
                 Configuration.getPassword())) {
-            try (PreparedStatement ps = connection.prepareStatement(sqlCount)) {
+            try (PreparedStatement ps = connection.prepareStatement(QueryConstants.GroupQueries.CHECK_GROUP_EXISTENCE)) {
                 ps.setString(1, groupName);
                 try (ResultSet rs = ps.executeQuery()) {
                     rs.first();
@@ -116,14 +114,13 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
                 System.out.println("User " + userName + " not found!");
                 return false;
             }
-            String sqlQuery = "INSERT INTO GroupMembers(groupName, memberId) VALUES (?, ?)";
             try (Connection connection = DriverManager.getConnection(
                     "jdbc:" + Configuration.getType() + "://"
                             + Configuration.getServer() + ":"
                             + Configuration.getPort() + "/"
                             + Configuration.getDatabase(), Configuration.getUser(),
                     Configuration.getPassword())) {
-                try (PreparedStatement ps = connection.prepareStatement(sqlQuery)) {
+                try (PreparedStatement ps = connection.prepareStatement(QueryConstants.GroupQueries.ADD_TO_GROUP)) {
                     ps.setString(1, groupName);
                     ps.setInt(2, userId);
                     try {
@@ -161,14 +158,13 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
             return false;
         }
         if (!exists) {
-            String sqlQuery = "INSERT INTO GroupDatabase (groupName, adminId) VALUES (?, ?)";
             try (Connection connection = DriverManager.getConnection(
                     "jdbc:" + Configuration.getType() + "://"
                             + Configuration.getServer() + ":"
                             + Configuration.getPort() + "/"
                             + Configuration.getDatabase(), Configuration.getUser(),
                     Configuration.getPassword())) {
-                try (PreparedStatement ps = connection.prepareStatement(sqlQuery)) {
+                try (PreparedStatement ps = connection.prepareStatement(QueryConstants.GroupQueries.CREATE_GROUP)) {
                     ps.setString(1, groupName);
                     ps.setInt(2, adminId);
                     try {

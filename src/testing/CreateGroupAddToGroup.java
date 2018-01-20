@@ -2,6 +2,7 @@ package testing;
 
 import dbadapter.Configuration;
 import dbadapter.GroupFacade;
+import dbadapter.QueryConstants;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,7 +35,7 @@ public class CreateGroupAddToGroup {
     @Test
     public final void getUserIdValid() {
         final String SAMPLE_USER_NAME = "SAMPLE_USERNAME";
-        final String SQL_SELECT_USER_ID = "SELECT userId FROM Users WHERE userName=?";
+        final String SQL_SELECT_USER_ID = QueryConstants.GroupQueries.GET_USER_ID;
         try {
             Connection stubConnection = mock(Connection.class);
             PreparedStatement ps = mock(PreparedStatement.class);
@@ -63,7 +64,7 @@ public class CreateGroupAddToGroup {
     @Test
     public final void getUserIdInvalid() {
         final String SAMPLE_USER_NAME = "SAMPLE_USERNAME";
-        final String SQL_SELECT_USER_ID = "SELECT userId FROM Users WHERE userName=?";
+        final String SQL_SELECT_USER_ID = QueryConstants.GroupQueries.GET_USER_ID;
         try {
             Connection stubConnection = mock(Connection.class);
             PreparedStatement ps = mock(PreparedStatement.class);
@@ -91,7 +92,7 @@ public class CreateGroupAddToGroup {
     @Test
     public final void checkGroupNameExists() {
         final String SAMPLE_GROUP_NAME = "SAMPLE_GROUP";
-        final String SAMPLE_SELECT_GROUP = "SELECT count(*) FROM GroupDatabase WHERE groupName=?;";
+        final String SAMPLE_SELECT_GROUP = QueryConstants.GroupQueries.CHECK_GROUP_EXISTENCE;
         try {
             Connection stubConnection = mock(Connection.class);
             PreparedStatement ps = mock(PreparedStatement.class);
@@ -120,7 +121,7 @@ public class CreateGroupAddToGroup {
     @Test
     public final void checkGroupNameNotExists() {
         final String SAMPLE_GROUP_NAME = "SAMPLE_GROUP";
-        final String SAMPLE_SELECT_GROUP = "SELECT count(*) FROM GroupDatabase WHERE groupName=?;";
+        final String SAMPLE_SELECT_GROUP = QueryConstants.GroupQueries.CHECK_GROUP_EXISTENCE;
         try {
             Connection stubConnection = mock(Connection.class);
             PreparedStatement ps = mock(PreparedStatement.class);
@@ -150,9 +151,9 @@ public class CreateGroupAddToGroup {
     public final void addUserToGroupValid() {
         final String SAMPLE_GROUP_NAME = "SAMPLE_GROUP";
         final String SAMPLE_USER_NAME = "SAMPLE_USERNAME";
-        final String SAMPLE_SELECT_GROUP = "SELECT count(*) FROM GroupDatabase WHERE groupName=?;";
-        final String SAMPLE_INSERT_USER_INTO_GROUP = "INSERT INTO GroupMembers(groupName, memberId) VALUES (?, ?)";
-        final String SQL_SELECT_USER_ID = "SELECT userId FROM Users WHERE userName=?";
+        final String SAMPLE_SELECT_GROUP = QueryConstants.GroupQueries.CHECK_GROUP_EXISTENCE;
+        final String SAMPLE_INSERT_USER_INTO_GROUP = QueryConstants.GroupQueries.ADD_TO_GROUP;
+        final String SQL_SELECT_USER_ID = QueryConstants.GroupQueries.GET_USER_ID;
         try {
             Connection stubConnection = mock(Connection.class);
             PreparedStatement ps = mock(PreparedStatement.class);
@@ -194,9 +195,9 @@ public class CreateGroupAddToGroup {
     public final void addUserToGroupInvalid() {
         final String SAMPLE_GROUP_NAME = "SAMPLE_GROUP";
         final String SAMPLE_USER_NAME = "SAMPLE_USERNAME";
-        final String SAMPLE_SELECT_GROUP = "SELECT count(*) FROM GroupDatabase WHERE groupName=?;";
-        final String SAMPLE_INSERT_USER_INTO_GROUP = "INSERT INTO GroupMembers(groupName, memberId) VALUES (?, ?)";
-        final String SQL_SELECT_USER_ID = "SELECT userId FROM Users WHERE userName=?";
+        final String SAMPLE_SELECT_GROUP = QueryConstants.GroupQueries.CHECK_GROUP_EXISTENCE;
+        final String SAMPLE_INSERT_USER_INTO_GROUP = QueryConstants.GroupQueries.ADD_TO_GROUP;
+        final String SQL_SELECT_USER_ID = QueryConstants.GroupQueries.GET_USER_ID;
         try {
             Connection stubConnection = mock(Connection.class);
             PreparedStatement ps = mock(PreparedStatement.class);
@@ -244,10 +245,10 @@ public class CreateGroupAddToGroup {
             add("SAMPLE_MEMBER_3");
         }};
 
-        String SQL_CREATE_GROUP = "INSERT INTO GroupDatabase (groupName, adminId) VALUES (?, ?)";
-        String SQL_SELECT_ADMIN_ID = "SELECT userId FROM Users WHERE userName=?";
-        String SQL_ADD_USER_TO_GROUP = "INSERT INTO GroupMembers(groupName, memberId) VALUES (?, ?)";
-        String SQL_CHECK_GROUP_NAME_EXISTS = "SELECT count(*) FROM GroupDatabase WHERE groupName=?;";
+        String SQL_CREATE_GROUP = QueryConstants.GroupQueries.CREATE_GROUP;
+        String SQL_SELECT_ADMIN_ID = QueryConstants.GroupQueries.GET_USER_ID;
+        String SQL_ADD_USER_TO_GROUP = QueryConstants.GroupQueries.ADD_TO_GROUP;
+        String SQL_CHECK_GROUP_NAME_EXISTS = QueryConstants.GroupQueries.CHECK_GROUP_EXISTENCE;
 
         try {
             Connection stubConnection = mock(Connection.class);
@@ -316,10 +317,10 @@ public class CreateGroupAddToGroup {
             add("SAMPLE_MEMBER_3");
         }};
 
-        String SQL_CREATE_GROUP = "INSERT INTO GroupDatabase (groupName, adminId) VALUES (?, ?)";
-        String SQL_SELECT_ADMIN_ID = "SELECT userId FROM Users WHERE userName=?";
-        String SQL_ADD_USER_TO_GROUP = "INSERT INTO GroupMembers(groupName, memberId) VALUES (?, ?)";
-        String SQL_CHECK_GROUP_NAME_EXISTS = "SELECT count(*) FROM GroupDatabase WHERE groupName=?;";
+        String SQL_CREATE_GROUP = QueryConstants.GroupQueries.CREATE_GROUP;
+        String SQL_SELECT_ADMIN_ID = QueryConstants.GroupQueries.GET_USER_ID;
+        String SQL_ADD_USER_TO_GROUP = QueryConstants.GroupQueries.ADD_TO_GROUP;
+        String SQL_CHECK_GROUP_NAME_EXISTS = QueryConstants.GroupQueries.CHECK_GROUP_EXISTENCE;
 
         try {
             Connection stubConnection = mock(Connection.class);
