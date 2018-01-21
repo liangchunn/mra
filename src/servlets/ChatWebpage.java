@@ -79,6 +79,14 @@ public class ChatWebpage extends HttpServlet {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            } else {
+                request.setAttribute("pagetitle", "Error");
+                request.setAttribute("message", "Group does not exist or you do not have sufficient permissions for this group!");
+                try {
+                    request.getRequestDispatcher("/templates/failInfoRepresentation.ftl").forward(request, response);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
             }
 
         } else if (request.getParameter("action").equals("Receive Messages")) {
@@ -102,6 +110,14 @@ public class ChatWebpage extends HttpServlet {
                         e2.printStackTrace();
                     }
                     e.printStackTrace();
+                }
+            } else {
+                request.setAttribute("pagetitle", "Error");
+                request.setAttribute("message", "Group does not exist or you do not have sufficient permissions for this group!");
+                try {
+                    request.getRequestDispatcher("/templates/failInfoRepresentation.ftl").forward(request, response);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             }
         } else if (request.getParameter("action").equals("saveMessage")) {
