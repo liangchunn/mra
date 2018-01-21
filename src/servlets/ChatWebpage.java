@@ -1,27 +1,13 @@
 package servlets;
 
 import application.MRAApplication;
-
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
-import freemarker.template.Configuration;
-import freemarker.template.Template;
 import datatypes.ChatData;
-import freemarker.template.Version;
 import view.receiveMessagesView;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Cody's Original Chat Implementation on 14.01.18.

@@ -1,34 +1,27 @@
-package tests;
-
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
+package GroupFacade;
 
 import datatypes.ChatData;
+import dbadapter.Configuration;
+import dbadapter.GroupFacade;
+import dbadapter.QueryConstants;
 import extraClasses.MyResult;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import dbadapter.Configuration;
-import dbadapter.GroupFacade;
+import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Objects;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.*;
 
 
 /**
@@ -36,7 +29,7 @@ import dbadapter.GroupFacade;
  */
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(GroupFacade.class)
-public class GroupFacadeTest {
+public class Chat {
 
     @Before
     public void setUp() throws Exception {
@@ -45,8 +38,8 @@ public class GroupFacadeTest {
 
     @Test
     public final void testSaveMessage() {
-        String sqlQuery = "INSERT INTO ChatDatabase (groupName, creatorName, message) VALUES (?, ?, ?);";
-        String sqlQueryB = "SELECT userName FROM users WHERE userId = ?;";
+        String sqlQuery = QueryConstants.GroupQueries.SAVE_CHAT_MESSAGE;
+        String sqlQueryB = QueryConstants.GroupQueries.GET_USERNAME_BY_USER_ID;
         try {
             // Setting up return values for connection and statements
             Connection stubCon = mock(Connection.class);
@@ -91,7 +84,7 @@ public class GroupFacadeTest {
             verify(psB, times(1)).executeQuery();
 
             // Verify return values
-            assertTrue(check == true);
+            assertTrue(check);
             // ...
 
         } catch (Exception e) {
@@ -101,7 +94,7 @@ public class GroupFacadeTest {
 
     @Test
     public final void testGetUsername() {
-        String sqlQuery = "SELECT userName FROM users WHERE userId = ?;";
+        String sqlQuery = QueryConstants.GroupQueries.GET_USERNAME_BY_USER_ID;
         try {
             // Setting up return values for connection and statements
             Connection stubCon = mock(Connection.class);
@@ -139,7 +132,7 @@ public class GroupFacadeTest {
 
     @Test
     public final void testShowMessages() {
-        String sqlQuery = "SELECT message,creatorName, creationTime FROM ChatDatabase WHERE groupName = ?;";
+        String sqlQuery = QueryConstants.GroupQueries.GET_ALL_MESSAGES_BY_GROUP_NAME;
         Timestamp stubCreationTime;
         try {
             // Setting up return values for connection and statements
@@ -181,9 +174,9 @@ public class GroupFacadeTest {
 
             // Verify return values
             assertTrue(messages.size() == 1);
-            assertTrue(messages.get(0).getCreatorName() == "Soliman");
+            assertTrue(Objects.equals(messages.get(0).getCreatorName(), "Soliman"));
             assertTrue(messages.get(0).getCreationTime() == stubCreationTime);
-            assertTrue(messages.get(0).getMessageText() == "Hallo Welt!! :D");
+            assertTrue(Objects.equals(messages.get(0).getMessageText(), "Hallo Welt!! :D"));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -195,7 +188,7 @@ public class GroupFacadeTest {
 
     @Test
     public final void testLeaveGroup() {
-        String sqlQuery = "SELECT adminId FROM groupdatabase WHERE groupName = ?;";
+        String sqlQuery = QueryConstants.GroupQueries.SELECT_ADMIN_ID_FROM_GROUP_NAME;
         try {
             // Setting up return values for connection and statements
             Connection stubCon = mock(Connection.class);
@@ -232,11 +225,11 @@ public class GroupFacadeTest {
             // Verify how often a method has been called
             verify(stubCon, times(1)).prepareStatement(sqlQuery);
             verify(ps, times(1)).executeQuery();
-            verify(stubGroupFacade, times(1)).deleteGroup("Hulk");
+//            verify(stubGroupFacade, times(1)).deleteGroup("Hulk");
 
 
             // Verify return values
-            assertTrue(check.getFirst() == true);
+            assertTrue(check.getFirst());
             assertTrue(check.getSecond() == 1);
 
         } catch (Exception e) {

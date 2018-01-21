@@ -5,8 +5,6 @@
 <br/>
 <a href="user?action=addUserToGroup">Add user to group</a>
 <br/>
-<a href="/chat">Start Chat</a>
-<br/>
 <a href="user?action=leaveGroup">Leave group</a>
 
 <#include "footer.ftl">

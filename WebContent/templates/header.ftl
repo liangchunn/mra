@@ -36,6 +36,8 @@
 	<#--<#else>-->
     	<#--<li><a href="staffmembergui" title="Staffmember">Staffmember</a></li>-->
 		<li><a href="user" title="User Actions">User</a></li>
-	<#--</#if>-->
+        <li><a href="chat" title="Group Chat">Group Chat</a></li>
+
+    <#--</#if>-->
     </ul>
 	<div id="content">

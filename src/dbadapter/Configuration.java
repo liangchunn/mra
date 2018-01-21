@@ -19,7 +19,7 @@ public class Configuration {
 	 * access this file and that all login data is tranfered in an encrypted way
 	 * (e.g. SSL).
 	 */
-    private static final String PASSWORD = "admin";
+    private static final String PASSWORD = "trivago123";
 
 	public static String getServer() {
 		return SERVER;

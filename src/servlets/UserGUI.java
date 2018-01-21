@@ -16,38 +16,43 @@ public class UserGUI extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         String action = (request.getParameter("action") == null) ? "" : request.getParameter("action");
-        if (action.equals("createGroup")) {
-            request.setAttribute("pagetitle", "Create Group");
-            request.setAttribute("hid", request.getParameter("hid"));
-            try {
-                request.getRequestDispatcher("/templates/createGroup.ftl").forward(request, response);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else if (action.equals("addUserToGroup")) {
-            request.setAttribute("pagetitle", "Add User To Group");
-            request.setAttribute("hid", request.getParameter("hid"));
-            try {
-                request.getRequestDispatcher("/templates/addUserToGroup.ftl").forward(request, response);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else if (action.equals("leaveGroup")) {
-            request.setAttribute("pagetitle", "Leave Group");
-            request.setAttribute("hid", request.getParameter("hid"));
-            try {
-                request.getRequestDispatcher("/templates/leaveGroup.ftl").forward(request, response);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else {
-            request.setAttribute("pagetitle", "User Actions");
-            request.setAttribute("hid", request.getParameter("hid"));
-            try {
-                request.getRequestDispatcher("/templates/user.ftl").forward(request, response);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        switch (action) {
+            case "createGroup":
+                request.setAttribute("pagetitle", "Create Group");
+                request.setAttribute("hid", request.getParameter("hid"));
+                try {
+                    request.getRequestDispatcher("/templates/createGroup.ftl").forward(request, response);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "addUserToGroup":
+                request.setAttribute("pagetitle", "Add User To Group");
+                request.setAttribute("hid", request.getParameter("hid"));
+                try {
+                    request.getRequestDispatcher("/templates/addUserToGroup.ftl").forward(request, response);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "leaveGroup":
+                request.setAttribute("pagetitle", "Leave Group");
+                request.setAttribute("hid", request.getParameter("hid"));
+                try {
+                    request.getRequestDispatcher("/templates/leaveGroup.ftl").forward(request, response);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+            default:
+                request.setAttribute("pagetitle", "User Actions");
+                request.setAttribute("hid", request.getParameter("hid"));
+                try {
+                    request.getRequestDispatcher("/templates/user.ftl").forward(request, response);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
         }
     }
     protected void doPost (HttpServletRequest request, HttpServletResponse response) {
@@ -56,8 +61,8 @@ public class UserGUI extends HttpServlet {
             try {
                 ArrayList<String> splitUserNames = new ArrayList<>();
                 String[] splitUserNamesIntermediate = request.getParameter("memberUserNames").split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
-                for (int i = 0; i < splitUserNamesIntermediate.length; i++) {
-                    splitUserNames.add(splitUserNamesIntermediate[i]);
+                for (String aSplitUserNamesIntermediate : splitUserNamesIntermediate) {
+                    splitUserNames.add(aSplitUserNamesIntermediate);
                 }
                 boolean success = MRAApplication.getInstance().createGroup(
                         request.getParameter("groupName"),
@@ -142,7 +147,7 @@ public class UserGUI extends HttpServlet {
                         e.printStackTrace();
                     }
                 } else {
-                    request.setAttribute("pagetitle", "Add User Failed");
+                    request.setAttribute("pagetitle", "Remove User Failed");
                     request.setAttribute("message", "Failed to remove user from the group.");
                     try {
                         request.getRequestDispatcher("/templates/failInfoRepresentation.ftl").forward(request, response);

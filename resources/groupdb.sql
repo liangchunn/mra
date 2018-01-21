@@ -32,23 +32,6 @@ CREATE TABLE GroupMembers (
   UNIQUE (groupName, memberId)
 );
 
-
-CREATE TABLE ChatDatabase (
-  messageId INT AUTO_INCREMENT,
-  groupName VARCHAR(20) NOT NULL,
-  message LONGTEXT,
-  creatorName VARCHAR(20) NOT NULL,
-  creationTime TIMESTAMP,
-  PRIMARY KEY (messageId),
-  FOREIGN KEY (groupName)
-    REFERENCES GroupDatabase(groupName)
-    ON UPDATE CASCADE,
-  FOREIGN KEY (creatorName)
-    REFERENCES Users(userName)
-    ON UPDATE CASCADE
-);
-
-
 CREATE TABLE ChatDatabase (
   messageId INT AUTO_INCREMENT,
   groupName VARCHAR(20) NOT NULL,

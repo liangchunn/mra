@@ -1,4 +1,4 @@
-package testing;
+package GroupFacade;
 
 import dbadapter.Configuration;
 import dbadapter.GroupFacade;
@@ -35,7 +35,7 @@ public class CreateGroupAddToGroup {
     @Test
     public final void getUserIdValid() {
         final String SAMPLE_USER_NAME = "SAMPLE_USERNAME";
-        final String SQL_SELECT_USER_ID = QueryConstants.GroupQueries.GET_USER_ID;
+        final String SQL_SELECT_USER_ID = QueryConstants.GroupQueries.GET_USER_ID_BY_USERNAME;
         try {
             Connection stubConnection = mock(Connection.class);
             PreparedStatement ps = mock(PreparedStatement.class);
@@ -64,7 +64,7 @@ public class CreateGroupAddToGroup {
     @Test
     public final void getUserIdInvalid() {
         final String SAMPLE_USER_NAME = "SAMPLE_USERNAME";
-        final String SQL_SELECT_USER_ID = QueryConstants.GroupQueries.GET_USER_ID;
+        final String SQL_SELECT_USER_ID = QueryConstants.GroupQueries.GET_USER_ID_BY_USERNAME;
         try {
             Connection stubConnection = mock(Connection.class);
             PreparedStatement ps = mock(PreparedStatement.class);
@@ -111,7 +111,7 @@ public class CreateGroupAddToGroup {
             when(rs.first()).thenReturn(true);
             when(rs.getInt(1)).thenReturn(1);
 
-            assertTrue(GroupFacade.getInstance().checkIfGroupNameExists(SAMPLE_GROUP_NAME) == true);
+            assertTrue(GroupFacade.getInstance().checkIfGroupNameExists(SAMPLE_GROUP_NAME));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -140,7 +140,7 @@ public class CreateGroupAddToGroup {
             when(rs.first()).thenReturn(true);
             when(rs.getInt(1)).thenReturn(0);
 
-            assertTrue(GroupFacade.getInstance().checkIfGroupNameExists(SAMPLE_GROUP_NAME) == false);
+            assertTrue(!GroupFacade.getInstance().checkIfGroupNameExists(SAMPLE_GROUP_NAME));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -153,7 +153,7 @@ public class CreateGroupAddToGroup {
         final String SAMPLE_USER_NAME = "SAMPLE_USERNAME";
         final String SAMPLE_SELECT_GROUP = QueryConstants.GroupQueries.CHECK_GROUP_EXISTENCE;
         final String SAMPLE_INSERT_USER_INTO_GROUP = QueryConstants.GroupQueries.ADD_TO_GROUP;
-        final String SQL_SELECT_USER_ID = QueryConstants.GroupQueries.GET_USER_ID;
+        final String SQL_SELECT_USER_ID = QueryConstants.GroupQueries.GET_USER_ID_BY_USERNAME;
         try {
             Connection stubConnection = mock(Connection.class);
             PreparedStatement ps = mock(PreparedStatement.class);
@@ -184,7 +184,7 @@ public class CreateGroupAddToGroup {
             when(rs3.first()).thenReturn(true);
             when(rs3.getInt(1)).thenReturn(2);
 
-            assertTrue(GroupFacade.getInstance().addUserToGroup(SAMPLE_GROUP_NAME, SAMPLE_USER_NAME) == true);
+            assertTrue(GroupFacade.getInstance().addUserToGroup(SAMPLE_GROUP_NAME, SAMPLE_USER_NAME));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -197,7 +197,7 @@ public class CreateGroupAddToGroup {
         final String SAMPLE_USER_NAME = "SAMPLE_USERNAME";
         final String SAMPLE_SELECT_GROUP = QueryConstants.GroupQueries.CHECK_GROUP_EXISTENCE;
         final String SAMPLE_INSERT_USER_INTO_GROUP = QueryConstants.GroupQueries.ADD_TO_GROUP;
-        final String SQL_SELECT_USER_ID = QueryConstants.GroupQueries.GET_USER_ID;
+        final String SQL_SELECT_USER_ID = QueryConstants.GroupQueries.GET_USER_ID_BY_USERNAME;
         try {
             Connection stubConnection = mock(Connection.class);
             PreparedStatement ps = mock(PreparedStatement.class);
@@ -228,7 +228,7 @@ public class CreateGroupAddToGroup {
             when(rs3.first()).thenReturn(true);
             when(rs3.getInt(1)).thenReturn(2);
 
-            assertTrue(GroupFacade.getInstance().addUserToGroup(SAMPLE_GROUP_NAME, SAMPLE_USER_NAME) == false);
+            assertTrue(!GroupFacade.getInstance().addUserToGroup(SAMPLE_GROUP_NAME, SAMPLE_USER_NAME));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -246,7 +246,7 @@ public class CreateGroupAddToGroup {
         }};
 
         String SQL_CREATE_GROUP = QueryConstants.GroupQueries.CREATE_GROUP;
-        String SQL_SELECT_ADMIN_ID = QueryConstants.GroupQueries.GET_USER_ID;
+        String SQL_SELECT_ADMIN_ID = QueryConstants.GroupQueries.GET_USER_ID_BY_USERNAME;
         String SQL_ADD_USER_TO_GROUP = QueryConstants.GroupQueries.ADD_TO_GROUP;
         String SQL_CHECK_GROUP_NAME_EXISTS = QueryConstants.GroupQueries.CHECK_GROUP_EXISTENCE;
 
@@ -299,7 +299,7 @@ public class CreateGroupAddToGroup {
 
             boolean check = GroupFacade.getInstance().createGroup(SAMPLE_GROUP_NAME, SAMPLE_ADMIN_NAME, SAMPLE_MEMBER_NAMES);
 
-            assertTrue(check == true);
+            assertTrue(check);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -318,7 +318,7 @@ public class CreateGroupAddToGroup {
         }};
 
         String SQL_CREATE_GROUP = QueryConstants.GroupQueries.CREATE_GROUP;
-        String SQL_SELECT_ADMIN_ID = QueryConstants.GroupQueries.GET_USER_ID;
+        String SQL_SELECT_ADMIN_ID = QueryConstants.GroupQueries.GET_USER_ID_BY_USERNAME;
         String SQL_ADD_USER_TO_GROUP = QueryConstants.GroupQueries.ADD_TO_GROUP;
         String SQL_CHECK_GROUP_NAME_EXISTS = QueryConstants.GroupQueries.CHECK_GROUP_EXISTENCE;
 
@@ -371,7 +371,7 @@ public class CreateGroupAddToGroup {
 
             boolean check = GroupFacade.getInstance().createGroup(SAMPLE_GROUP_NAME, SAMPLE_ADMIN_NAME, SAMPLE_MEMBER_NAMES);
 
-            assertTrue(check == false);
+            assertTrue(!check);
 
         } catch (Exception e) {
             e.printStackTrace();
