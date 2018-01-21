@@ -183,16 +183,16 @@ public class Chat {
         }
     }
 
-
-
-
     @Test
-    public final void testLeaveGroup() {
+    public final void testLeaveGroupAdmin() {
         String sqlQuery = QueryConstants.GroupQueries.SELECT_ADMIN_ID_FROM_GROUP_NAME;
+        String REMOVE_GROUP = QueryConstants.GroupQueries.REMOVE_GROUP_BY_GROUP_NAME;
+        String REMOVE_MEMBERS = QueryConstants.GroupQueries.REMOVE_ALL_GROUP_MEMBERS_BY_GROUP_NAME;
         try {
-            // Setting up return values for connection and statements
             Connection stubCon = mock(Connection.class);
             PreparedStatement ps = mock(PreparedStatement.class);
+            PreparedStatement ps2 = mock(PreparedStatement.class);
+            PreparedStatement ps3 = mock(PreparedStatement.class);
             ResultSet rs = mock(ResultSet.class);
             PowerMockito.when(
                     DriverManager.getConnection(
@@ -204,33 +204,72 @@ public class Chat {
                             Configuration.getPassword())).thenReturn(stubCon);
 
             when(stubCon.prepareStatement(sqlQuery)).thenReturn(ps);
+            when(stubCon.prepareStatement(REMOVE_GROUP)).thenReturn(ps2);
+            when(stubCon.prepareStatement(REMOVE_MEMBERS)).thenReturn(ps3);
+            when(ps2.executeUpdate()).thenReturn(1);
+            when(ps3.executeUpdate()).thenReturn(1);
             when(ps.executeQuery()).thenReturn(rs);
-
-            GroupFacade stubGroupFacade = new GroupFacade() {
-                @Override
-                public boolean deleteGroup(String groupName) {
-                    return true;
-                }
-            };
 
             // Setting up return values for methods
             when(rs.next()).thenReturn(true).thenReturn(false);
             when(rs.getString("adminId")).thenReturn("6");
-            when(stubGroupFacade.deleteGroup("Hulk")).thenReturn(true);
 
             MyResult check = GroupFacade.getInstance()
                     .leaveGroup("Hulk", 6);
 
-
             // Verify how often a method has been called
             verify(stubCon, times(1)).prepareStatement(sqlQuery);
             verify(ps, times(1)).executeQuery();
-//            verify(stubGroupFacade, times(1)).deleteGroup("Hulk");
 
 
             // Verify return values
             assertTrue(check.getFirst());
             assertTrue(check.getSecond() == 1);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public final void testLeaveGroupUser() {
+        String GROUP_NAME = "Hulk";
+        String sqlQuery = QueryConstants.GroupQueries.SELECT_ADMIN_ID_FROM_GROUP_NAME;
+        String REMOVE_MEMBER = QueryConstants.GroupQueries.REMOVE_MEMBER_FROM_GROUP;
+        try {
+            Connection stubCon = mock(Connection.class);
+            PreparedStatement ps = mock(PreparedStatement.class);
+            PreparedStatement ps2 = mock(PreparedStatement.class);
+            ResultSet rs = mock(ResultSet.class);
+            PowerMockito.when(
+                    DriverManager.getConnection(
+                            "jdbc:" + Configuration.getType() + "://"
+                                    + Configuration.getServer() + ":"
+                                    + Configuration.getPort() + "/"
+                                    + Configuration.getDatabase(),
+                            Configuration.getUser(),
+                            Configuration.getPassword())).thenReturn(stubCon);
+
+            when(stubCon.prepareStatement(sqlQuery)).thenReturn(ps);
+            when(stubCon.prepareStatement(REMOVE_MEMBER)).thenReturn(ps2);
+            when(ps2.executeUpdate()).thenReturn(1);
+            when(ps.executeQuery()).thenReturn(rs);
+
+            // Setting up return values for methods
+            when(rs.next()).thenReturn(true).thenReturn(false);
+            when(rs.getString("adminId")).thenReturn("6");
+
+            MyResult check = GroupFacade.getInstance()
+                    .leaveGroup(GROUP_NAME, 7);
+
+            // Verify how often a method has been called
+            verify(stubCon, times(1)).prepareStatement(sqlQuery);
+            verify(ps, times(1)).executeQuery();
+
+
+            // Verify return values
+            assertTrue(check.getFirst());
+            assertTrue(check.getSecond() == 2);
 
         } catch (Exception e) {
             e.printStackTrace();
