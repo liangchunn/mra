@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Created by liangchun on 14.01.18.
  */
-public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, ICreateGroup, IChatLogin, IReceiveMessages, ISendMessages, ILeaveGroup {
+public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, ICreateGroup, IChatLogin, IReceiveMessages, ISendMessages, ILeaveGroup, ITimer {
     private static GroupFacade instance;
 
     protected GroupFacade() {
@@ -406,4 +406,55 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
         }
         return new MyResult(false, 0);
     }
+
+    /**
+     * Cleans up all groups which have 1 member by removing them
+     * @return {int} 1 if groups was deleted, 0 if nothing deleted, -1 if an error has occurred
+     */
+    public int autoDeleteGroups() {
+        System.out.println("[AUTO] Started 'autoDelete' job...");
+        try (Connection connection = DriverManager.getConnection(
+                "jdbc:" + Configuration.getType() + "://"
+                        + Configuration.getServer() + ":"
+                        + Configuration.getPort() + "/"
+                        + Configuration.getDatabase(), Configuration.getUser(),
+                Configuration.getPassword())) {
+            try (PreparedStatement ps = connection.prepareStatement(QueryConstants.GroupQueries.GET_GROUP_NAMES_WITH_ONE_MEMBER)) {
+                try (ResultSet rs = ps.executeQuery()) {
+                    ArrayList<Boolean> allSuccess = new ArrayList<>();
+                    while(rs.next()) {
+                        String groupName = rs.getString(1);
+                        Boolean success = deleteGroup(groupName);
+                        if (success) {
+                            System.out.println("[AUTO] Successfully deleted group " + groupName);
+                        } else {
+                            System.out.println("[AUTO] Failed to delete group " + groupName);
+                        }
+                        allSuccess.add(success);
+                    }
+                    if (allSuccess.size() == 0) {
+                        System.out.println("[AUTO] No groups to delete\n[AUTO] Job 'autoDelete' completed with status 0");
+                        return 0;
+                    }
+                    for (Boolean b : allSuccess) {
+                        if (!b) {
+                            System.out.println("[AUTO] Delete of some group failed!");
+                            return -1;
+                        }
+                    }
+                    System.out.println("[AUTO] Job 'autoDelete' completed with status 1");
+                    return 1;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("[AUTO] Job 'autoDelete' failed with status -1!");
+        return -1;
+    }
+
 }

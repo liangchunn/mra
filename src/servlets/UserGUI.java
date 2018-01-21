@@ -1,6 +1,7 @@
 package servlets;
 
 import application.MRAApplication;
+import dbadapter.GroupFacade;
 import extraClasses.MyResult;
 
 import javax.servlet.http.HttpServlet;
@@ -17,6 +18,36 @@ public class UserGUI extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         String action = (request.getParameter("action") == null) ? "" : request.getParameter("action");
         switch (action) {
+            case "clean":
+                int result = GroupFacade.getInstance().autoDeleteGroups();
+                if (result == 0) {
+                    request.setAttribute("pagetitle", "No groups to delete");
+                    request.setAttribute("message", "No groups found with 1 members.");
+                    try {
+                        request.getRequestDispatcher("/templates/okRepresentation.ftl").forward(request, response);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                } else if (result == 1) {
+                    request.setAttribute("pagetitle", "Delete Groups Successful");
+                    request.setAttribute("message", "Successfully deleted groups with 1 members.");
+                    try {
+                        request.getRequestDispatcher("/templates/okRepresentation.ftl").forward(request, response);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                } else {
+                    request.setAttribute("pagetitle", "Delete Groups Failed");
+                    request.setAttribute("message", "Error encountered when deleting groups with 1 members!");
+                    try {
+                        request.getRequestDispatcher("/templates/failInfoRepresentation.ftl").forward(request, response);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                break;
             case "createGroup":
                 request.setAttribute("pagetitle", "Create Group");
                 request.setAttribute("hid", request.getParameter("hid"));

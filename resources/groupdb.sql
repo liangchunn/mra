@@ -16,7 +16,6 @@ CREATE TABLE GroupDatabase (
     ON UPDATE CASCADE
 );
 
-
 CREATE TABLE GroupMembers (
   entryId INT AUTO_INCREMENT,
   groupName VARCHAR(20) NOT NULL,
