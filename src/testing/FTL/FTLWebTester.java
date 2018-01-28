@@ -1,4 +1,4 @@
-package GroupFacade;
+package FTL;
 
 import net.sourceforge.jwebunit.junit.WebTester;
 import org.junit.Before;
