@@ -12,8 +12,8 @@
             <input type="text" name="userId" id="userId"/>
         </div>
     </fieldset>
-    <input type="submit" name="action" value="Send Messages"/>
-    <input type="submit" name="action" value="Receive Messages"/>
+    <input type="submit" name="action" value="Send Messages" id="sendMessage"/>
+    <input type="submit" name="action" value="Receive Messages" id="receiveMessage"/>
 </form>
 
 <#include "footer.ftl">

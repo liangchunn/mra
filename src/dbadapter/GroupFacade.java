@@ -32,6 +32,11 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
         return instance;
     }
 
+    /**
+     * Gets a user's id by its username
+     * @param userName username to find
+     * @return the user id
+     */
     public Integer getUserId(String userName) {
         if (userName.length() <= 0) {
             System.out.println("Username cannot be empty or null");
@@ -169,26 +174,6 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
                             }
 
                             return true;
-
-                            /* The code block below is used to check if a all users are successfully added to the group
-                            // Add the admin first
-                            addMembersSuccess.add(addUserToGroup(groupName, adminUserName));
-                            // Now add users
-                            for (int i = 0; i < memberUserNames.size(); i++) {
-                                addMembersSuccess.add(addUserToGroup(groupName, memberUserNames.get(i)));
-                            }
-                            // Then check if the length is the same
-                            if (addMembersSuccess.size() == memberUserNames.size()) {
-                                // now check if all are successful
-                                for (int i = 0; i < addMembersSuccess.size(); i++) {
-                                    if (addMembersSuccess.get(i) && addMembersSuccess.get(i) != null) {
-                                        continue;
-                                    } else {
-                                        return false;
-                                    }
-                                }
-                                return true;
-                            }*/
                         } else {
                             return false;
                         }
@@ -242,6 +227,11 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
         return false;
     }
 
+    /**
+     * Gets the user's username by id
+     * @param userId user id to check
+     * @return username from userid
+     */
     public String getUserName(Integer userId) {
         try (Connection connection = DriverManager.getConnection(
                 "jdbc:" + Configuration.getType() + "://"
@@ -267,7 +257,6 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
         }
         return null;
     }
-
 
     @Override
     public boolean saveMessage(String groupName, Integer userId, String message) {
@@ -323,6 +312,11 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
         return res;
     }
 
+    /**
+     * Deletes a group by its name
+     * @param groupName group name to delete
+     * @return if the group was successfully deleted
+     */
     public boolean deleteGroup(String groupName) {
         try (Connection connection = DriverManager.getConnection(
                 "jdbc:" + Configuration.getType() + "://"
@@ -356,6 +350,12 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
         return false;
     }
 
+    /**
+     * Removes a user by it's userId from a group
+     * @param groupName groupn ame to find
+     * @param userId user to delete
+     * @return if the user was successfully remove from the group
+     */
     private boolean removeUser(String groupName, Integer userId) {
         try (Connection connection = DriverManager.getConnection(
                 "jdbc:" + Configuration.getType() + "://"
@@ -409,7 +409,7 @@ public class GroupFacade implements ICheckIfGroupNameExists, IAddUserToGroup, IC
 
     /**
      * Cleans up all groups which have 1 member by removing them
-     * @return {int} 1 if groups was deleted, 0 if nothing deleted, -1 if an error has occurred
+     * @return 1 if groups was deleted, 0 if nothing deleted, -1 if an error has occurred
      */
     public int autoDeleteGroups() {
         System.out.println("[AUTO] Started 'autoDelete' job...");

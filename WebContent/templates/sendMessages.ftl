@@ -8,7 +8,7 @@
             <textarea id="messageText" class="text" cols="86" rows="20" name="message"></textarea>
         </div>
     </fieldset>
-    <button type="submit" name="saveMessage">Send</button>
+    <button type="submit" name="saveMessage" id="saveMessage">Send</button>
 </form>
 
 <#include "footer.ftl">

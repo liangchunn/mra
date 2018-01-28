@@ -12,7 +12,7 @@
             <input type="text" name="userName" id="userName"/>
         </div>
     </fieldset>
-    <button type="submit" name="addUserToGroup">Submit</button>
+    <button type="submit" name="addUserToGroup" id="addUserToGroup">Submit</button>
 </form>
 
 <#include "footer.ftl">

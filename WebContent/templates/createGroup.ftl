@@ -16,7 +16,7 @@
             <input type="text" name="memberUserNames" id="memberUserNames"/>
         </div>
     </fieldset>
-    <button type="submit" name="createGroup">Submit</button>
+    <button type="submit" name="createGroup" id="createGroup">Submit</button>
 </form>
 
 <#include "footer.ftl">
