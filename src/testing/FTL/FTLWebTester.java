@@ -8,15 +8,24 @@ import org.junit.runners.MethodSorters;
 
 import java.util.Random;
 
+/**
+ * Used to test all of the interactive parts of the web components, including
+ * all phenomenons such as failure, success, etc.
+ */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class FTLWebTester {
     private WebTester tester;
 
-    static protected String getSaltString() {
+    /**
+     * Generates a random string with A-Z and 0-9 with the length
+     * @param length the length of the generated string
+     * @return a random string
+     */
+    static protected String getSaltString(int length) {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
-        while (salt.length() < 8) { // length of the random string.
+        while (salt.length() < length) { // length of the random string.
             int index = (int) (rnd.nextFloat() * SALTCHARS.length());
             salt.append(SALTCHARS.charAt(index));
         }
@@ -25,7 +34,7 @@ public class FTLWebTester {
 
     }
 
-    private static String GROUP_NAME = getSaltString();
+    private static String GROUP_NAME = getSaltString(8);
     private static String CHAT_MESSAGE_1 = "This is the chat message 1";
     private static String CHAT_MESSAGE_2 = "This is the chat message 2";
 
