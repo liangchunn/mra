@@ -8,6 +8,8 @@ import org.junit.runners.MethodSorters;
 
 import java.util.Random;
 
+// TODO: Add comments for all tests
+
 /**
  * Used to test all of the interactive parts of the web components, including
  * all phenomenons such as failure, success, etc.

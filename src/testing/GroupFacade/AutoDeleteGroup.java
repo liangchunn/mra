@@ -18,6 +18,8 @@ import java.sql.ResultSet;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
+// TODO: Add comments for all tests
+
 /**
  * Created by liangchun on 21.01.18.
  */

@@ -23,6 +23,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
+// TODO: Add comments for all tests
 
 /**
  * Created by Cody on 19.01.2018 at 20:28.

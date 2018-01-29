@@ -20,6 +20,8 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+// TODO: Add comments for all tests
+
 /**
  * Created by liangchun on 20.01.18.
  */
