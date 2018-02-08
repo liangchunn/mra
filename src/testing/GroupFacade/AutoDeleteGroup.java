@@ -18,8 +18,6 @@ import java.sql.ResultSet;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
-// TODO: Add comments for all tests
-
 /**
  * Created by liangchun on 21.01.18.
  */
@@ -31,6 +29,9 @@ public class AutoDeleteGroup {
         PowerMockito.mockStatic(DriverManager.class);
     }
 
+    /**
+     * Test autoDelete no groups
+     */
     @Test
     public final void autoDeleteNone() {
         String GET_GROUPS_WITH_ONE_MEMBER = QueryConstants.GroupQueries.GET_GROUP_NAMES_WITH_ONE_MEMBER;
@@ -68,6 +69,9 @@ public class AutoDeleteGroup {
         }
     }
 
+    /**
+     * Test autoDelete with one group with only one admin left in the group
+     */
     @Test
     public final void autoDeleteOne() {
         String GET_GROUPS_WITH_ONE_MEMBER = QueryConstants.GroupQueries.GET_GROUP_NAMES_WITH_ONE_MEMBER;
@@ -123,6 +127,9 @@ public class AutoDeleteGroup {
         }
     }
 
+    /**
+     * Test autoDelete with two groups with only one admin left in the group
+     */
     @Test
     public final void autoDeleteTwo() {
         String GET_GROUPS_WITH_ONE_MEMBER = QueryConstants.GroupQueries.GET_GROUP_NAMES_WITH_ONE_MEMBER;
@@ -178,6 +185,9 @@ public class AutoDeleteGroup {
         }
     }
 
+    /**
+     * Test autoDelete failing to delete a group
+     */
     @Test
     public final void autoDeleteOneFail() {
         String GET_GROUPS_WITH_ONE_MEMBER = QueryConstants.GroupQueries.GET_GROUP_NAMES_WITH_ONE_MEMBER;

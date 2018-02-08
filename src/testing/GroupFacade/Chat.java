@@ -37,6 +37,9 @@ public class Chat {
         PowerMockito.mockStatic(DriverManager.class);
     }
 
+    /**
+     * Test saving a message as a user to an existent group
+     */
     @Test
     public final void testSaveMessage() {
         String sqlQuery = QueryConstants.GroupQueries.SAVE_CHAT_MESSAGE;
@@ -93,6 +96,9 @@ public class Chat {
         }
     }
 
+    /**
+     * Test getting a username from a group chat
+     */
     @Test
     public final void testGetUsername() {
         String sqlQuery = QueryConstants.GroupQueries.GET_USERNAME_BY_USER_ID;
@@ -131,6 +137,9 @@ public class Chat {
         }
     }
 
+    /**
+     * Test getting messages from an existent group with an existent user in the group
+     */
     @Test
     public final void testShowMessages() {
         String sqlQuery = QueryConstants.GroupQueries.GET_ALL_MESSAGES_BY_GROUP_NAME;
@@ -184,6 +193,9 @@ public class Chat {
         }
     }
 
+    /**
+     * Test leaving a group as an admin. The group should be deleted.
+     */
     @Test
     public final void testLeaveGroupAdmin() {
         String sqlQuery = QueryConstants.GroupQueries.SELECT_ADMIN_ID_FROM_GROUP_NAME;
@@ -232,6 +244,9 @@ public class Chat {
         }
     }
 
+    /**
+     * Test leaving a group as a user. The group should still exist.
+     */
     @Test
     public final void testLeaveGroupUser() {
         String GROUP_NAME = "Hulk";

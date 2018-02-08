@@ -40,12 +40,18 @@ public class FTLWebTester {
     private static String CHAT_MESSAGE_1 = "This is the chat message 1";
     private static String CHAT_MESSAGE_2 = "This is the chat message 2";
 
+    /**
+     * Prepares the WebTester and sets the base URL
+     */
     @Before
     public void prepare() {
         tester = new WebTester();
         tester.setBaseUrl("http://localhost:8080/");
     }
 
+    /**
+     * Tests if the links are visible on UserGUI
+     */
     @Test
     public void testA_UserGui() {
         tester.beginAt("user");
@@ -56,6 +62,9 @@ public class FTLWebTester {
 
     }
 
+    /**
+     * Creates a test group with the generated group name, and adding 2 users to the group
+     */
     @Test
     public void testB_CreateGroup() {
 
@@ -80,6 +89,9 @@ public class FTLWebTester {
         tester.assertTextPresent("Successfully created group.");
     }
 
+    /**
+     * Creates a group with an existing group name, the operation should fail
+     */
     @Test
     public void testC_CreateExistingGroup() {
         tester.beginAt("user?action=createGroup");
@@ -103,6 +115,9 @@ public class FTLWebTester {
         tester.assertTextPresent("Failed to created group.");
     }
 
+    /**
+     * Test adding a user to an existing group
+     */
     @Test
     public void testD_AddUserToGroup() {
         tester.beginAt("user?action=addUserToGroup");
@@ -123,6 +138,9 @@ public class FTLWebTester {
         tester.assertTextPresent("Successfully added user to group.");
     }
 
+    /**
+     * Test adding a non-existent user to group.
+     */
     @Test
     public void testE_AddNonExistentUserToGroup() {
         tester.beginAt("user?action=addUserToGroup");
@@ -143,6 +161,9 @@ public class FTLWebTester {
         tester.assertTextPresent("Failed to add user to group.");
     }
 
+    /**
+     * Submits a message to the created group, this should pass.
+     */
     @Test
     public void testF_SubmitChatMessageUser_1() {
         tester.beginAt("chat");
@@ -169,6 +190,9 @@ public class FTLWebTester {
         tester.assertTextPresent("Message sent successfully.");
     }
 
+    /**
+     * Test submitting another test message to the existing group. This should pass.
+     */
     @Test
     public void testF_SubmitChatMessageUser_2() {
         tester.beginAt("chat");
@@ -194,6 +218,9 @@ public class FTLWebTester {
         tester.assertTextPresent("Message sent successfully.");
     }
 
+    /**
+     * Test submitting a chat to a non-existing group. This should fail.
+     */
     @Test
     public void testG_SubmitChatMessageFailNonExistentGroup() {
         tester.beginAt("chat");
@@ -212,6 +239,9 @@ public class FTLWebTester {
         tester.assertTextPresent("Group does not exist or you do not have sufficient permissions for this group");
     }
 
+    /**
+     * Test submitting a chat to an existing group but with a member which is not in a group. This should fail.
+     */
     @Test
     public void testG_SubmitChatMessageFailNonExistentUser() {
         tester.beginAt("chat");
@@ -230,6 +260,9 @@ public class FTLWebTester {
         tester.assertTextPresent("Group does not exist or you do not have sufficient permissions for this group");
     }
 
+    /**
+     * Test getting all chat messages as an existing user in the group
+     */
     @Test
     public void testH_GetChatMessage() {
         tester.beginAt("chat");
@@ -249,6 +282,9 @@ public class FTLWebTester {
 
     }
 
+    /**
+     * Test getting all chat messages in a non-existent group
+     */
     @Test
     public void testH_GetChatMessageNonExistentGroup() {
         tester.beginAt("chat");
@@ -268,6 +304,9 @@ public class FTLWebTester {
 
     }
 
+    /**
+     * Test getting a message from a group with a user which is not in the group
+     */
     @Test
     public void testH_GetChatMessageNoPrivileges() {
         tester.beginAt("chat");
@@ -287,6 +326,9 @@ public class FTLWebTester {
     }
 
 
+    /**
+     * Test leaving a group
+     */
     @Test
     public void testI_UserLeaveGroup() {
         tester.beginAt("user?action=leaveGroup");
@@ -304,6 +346,9 @@ public class FTLWebTester {
         tester.assertTextPresent("User 2 successfully left Group " + GROUP_NAME + ".");
     }
 
+    /**
+     * Test admin leaving a group. The group should be deleted.
+     */
     @Test
     public void testJ_AdminLeaveGroup() {
         tester.beginAt("user?action=leaveGroup");
@@ -322,6 +367,9 @@ public class FTLWebTester {
         tester.assertTextPresent("The group is successfully deleted.");
     }
 
+    /**
+     * Test leaving a non-existent group. This should fail.
+     */
     @Test
     public void testK_NonExistentLeaveGroup () {
         tester.beginAt("user?action=leaveGroup");

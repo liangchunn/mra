@@ -34,6 +34,9 @@ public class CreateGroupAddToGroup {
         PowerMockito.mockStatic(DriverManager.class);
     }
 
+    /**
+     * Test getting a valid userId
+     */
     @Test
     public final void getUserIdValid() {
         final String SAMPLE_USER_NAME = "SAMPLE_USERNAME";
@@ -63,6 +66,9 @@ public class CreateGroupAddToGroup {
         }
     }
 
+    /**
+     * Test getting an invalid userId. The getUserId() function should return null.
+     */
     @Test
     public final void getUserIdInvalid() {
         final String SAMPLE_USER_NAME = "SAMPLE_USERNAME";
@@ -91,6 +97,9 @@ public class CreateGroupAddToGroup {
         }
     }
 
+    /**
+     * Test check if a group name already exists in the group database.
+     */
     @Test
     public final void checkGroupNameExists() {
         final String SAMPLE_GROUP_NAME = "SAMPLE_GROUP";
@@ -120,6 +129,9 @@ public class CreateGroupAddToGroup {
         }
     }
 
+    /**
+     * Test check if a group name does not exist in the group database.
+     */
     @Test
     public final void checkGroupNameNotExists() {
         final String SAMPLE_GROUP_NAME = "SAMPLE_GROUP";
@@ -149,6 +161,9 @@ public class CreateGroupAddToGroup {
         }
     }
 
+    /**
+     * Test adding a user to an existing group
+     */
     @Test
     public final void addUserToGroupValid() {
         final String SAMPLE_GROUP_NAME = "SAMPLE_GROUP";
@@ -192,6 +207,10 @@ public class CreateGroupAddToGroup {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Test fail adding a user to a group
+     */
 
     @Test
     public final void addUserToGroupInvalid() {
@@ -237,6 +256,9 @@ public class CreateGroupAddToGroup {
         }
     }
 
+    /**
+     * Test creating a group with valid data such as the admin name, group name, and sample users.
+     */
     @Test
     public final void createGroupWithValidDetails() {
         final String SAMPLE_GROUP_NAME = "SAMPLE_GROUP";
@@ -309,6 +331,9 @@ public class CreateGroupAddToGroup {
 
     }
 
+    /**
+     * Test failing to create a group with invalid details
+     */
     @Test
     public final void createGroupWithInvalidDetails() {
         final String SAMPLE_GROUP_NAME = "SAMPLE_GROUP";
